@@ -1,0 +1,4 @@
+.backdrop-blur-md {
+  backdrop-filter: blur(100px); /* Fallback for Tailwind */
+  -webkit-backdrop-filter: blur(8px); /* Safari support */
+}

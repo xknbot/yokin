@@ -1,4 +1,5 @@
 import React from "react";
+import Image from "next/image";
 
 type LeaderboardEntry = {
   rank: number;
@@ -15,7 +16,7 @@ type LeaderboardTableProps = {
 
 const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
   return (
-    <table className="w-full text-white bg-[#09090b] shadow-md">
+    <table className="mx-auto w-[90%] text-white bg-[#09090b] shadow-md">
       <thead>
         <tr className="border-b border-[#757575] text-[#757575] text-sm">
           <th className="p-4 text-left ">No</th>
@@ -27,13 +28,15 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
       </thead>
       <tbody>
         {entries.map((entry) => (
-          <tr key={entry.rank} className="border-t border-gray-800">
+          <tr key={entry.rank} >
             <td className="p-4 text-left">
               {entry.rank <= 3 ? (
-                <img
-                  src={`/medal-${entry.rank}.png`}
+                <Image
+                  src={`/rank${entry.rank}.png`}
                   alt={`Rank ${entry.rank}`}
                   className="w-6 h-6 inline-block"
+                  width={100}
+                  height={100}
                 />
               ) : (
                 entry.rank

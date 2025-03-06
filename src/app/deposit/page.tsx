@@ -23,6 +23,7 @@ export default function DepositPage() {
 
   return (
     <div className={styles.depositPage}>
+
       {/* Slot cho nội dung chính */}
       <slot name="main">
         <MainContent onCloseModal={closeModal} />

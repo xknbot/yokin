@@ -1,12 +1,20 @@
-'use client'; // Đánh dấu là Client Component
+'use client'; // Client Component
 
 import React, { useState } from 'react';
+import '@/styles/Modal.module.css'; // Import custom CSS file (adjust path as needed)
+import Button from '../components/ui/Button';
 
 interface DepositModalProps {
   onClose: () => void;
 }
 
 const DepositModal: React.FC<DepositModalProps> = ({ onClose }) => {
+
+  const onClick = () => {
+    // Logic to close the modal
+    console.log("Modal closed");
+    // Add your close logic here (e.g., set a state to hide the modal)
+  };
   const [depositAmount, setDepositAmount] = useState(0);
   const maxUSDC = 0.0056; // Giá trị USDC tối đa
 
@@ -16,42 +24,40 @@ const DepositModal: React.FC<DepositModalProps> = ({ onClose }) => {
   };
 
   return (
-    <div
-      className="fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center"
-      onClick={onClose} // Đóng modal khi nhấn ngoài
-    >
+    <div className='fixed w-full h-full top-0 left-0 z-9'>
+      <div onClick={() => onClose()} className='absolute w-full h-full top-0 left-0 bg-black/20 backdrop-blur-[3px] '></div>
+      
       <div
-        className="bg-gray-900 p-6 rounded-lg shadow-lg w-[300px] text-center"
-        onClick={(e) => e.stopPropagation()} // Ngăn sự kiện click lan ra ngoài
+        className="absolute left-[40%] top-[30%] bg-[#111] p-6 rounded-[3px] border border-[#222] shadow-lg w-[387px] text-white z-10"
       >
-        <h2 className="text-xl mb-4">Deposit</h2>
-        <p className="text-gray-400">This is Deposit Modal</p>
-        <div className="mt-4">
+        <div className="flex justify-between items-center mb-4">
+          <h2 className="text-[#757575] text-[20px] font-bold">Deposit</h2>
+          <span className="text-[#757575] text-[20px] font-bold">{maxUSDC} USDC</span> {/* Added USDC amount */}
+        </div>
+        <div className="mt-8">
           <input
             type="number"
             value={depositAmount}
             readOnly
-            className="w-full p-2 bg-gray-800 text-white border border-gray-600 rounded mb-2 text-center"
+            className="w-full text-white text-[30px]"
           />
-          <p className="text-gray-400">Est Value ($): {depositAmount.toFixed(4)}</p>
+          <p className="text-[#a1aaaa] text-[14px]">Est Value ($): {depositAmount.toFixed(4)}</p>
         </div>
-        <div className="flex justify-between mt-4 mb-4">
+        <div className="flex justify-between mt-8 mb-8 w-[50%]">
           {[25, 50, 75, 100].map((percent) => (
             <button
               key={percent}
               onClick={() => handlePercentage(percent)}
-              className="px-3 py-2 bg-gray-700 text-white rounded hover:bg-gray-600 flex-1 mx-1"
+              className=" bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-1 text-xs py-1 px-2"
             >
               {percent}%
             </button>
           ))}
         </div>
-        <button
-          onClick={onClose} // Đóng modal khi nhấn nút
-          className="w-full py-2 bg-white text-gray-900 rounded hover:bg-gray-200"
-        >
-          Close
-        </button>
+        <div className='text-center'>
+       <Button label="Deposit" variant="third" className='w-full'/>
+
+        </div>
       </div>
     </div>
   );
