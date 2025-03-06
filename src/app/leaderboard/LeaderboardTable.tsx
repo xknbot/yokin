@@ -1,5 +1,6 @@
 import React from "react";
 import Image from "next/image";
+import GradientCircle from "@/app/components/ui/GradientCircle";
 
 type LeaderboardEntry = {
   rank: number;
@@ -29,7 +30,7 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
       <tbody>
         {entries.map((entry) => (
           <tr key={entry.rank} >
-            <td className="p-4 text-left">
+            <td className="p-4 text-center">
               {entry.rank <= 3 ? (
                 <Image
                   src={`/rank${entry.rank}.png`}
@@ -42,11 +43,12 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
                 entry.rank
               )}
             </td>
-            <td className="p-4 text-left">
+            <td className="p-4 text-center">
               {entry.user} {entry.isCurrentUser && <span className="text-blue-400">(YOU)</span>}
             </td>
             <td className="p-4 text-center">
-              <span className="bg-gray-700 text-white rounded-full px-2 py-1 inline-block">{entry.referralPoints}</span>
+              <div className=""><GradientCircle/></div>
+              <span className="text-white px-2 py-1 inline-block">{entry.referralPoints}</span>
             </td>
             <td className="p-4 text-center">
               <span className="bg-gray-700 text-white rounded-full px-2 py-1 inline-block">{entry.yokinPoints}</span>
