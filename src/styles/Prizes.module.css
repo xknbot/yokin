@@ -1,0 +1,76 @@
+
+.container {
+
+  padding: 20px;
+  min-height: 100vh;
+  font-family: Arial, sans-serif; /* Font mặc định */
+}
+
+.banner {
+  margin-top: 69px;
+  margin-bottom: 72px;
+  height: 98px;
+  text-align: center;
+
+}
+
+.banner > h1 {
+  font-size: 32px;
+  font-weight: 600;
+  margin-bottom: 24px;
+  line-height: 38px;
+}
+
+/* src/app/components/CurrentPrizes/CurrentPrizes.module.css */
+.currentPrizesContainer {
+
+  background-color: transparent; /* Nền đen như giao diện */
+  width: 1200px;
+  margin: 0px auto;
+ 
+
+}
+
+.title {
+  text-align: center;
+  font-size: 1.5rem;
+  background: linear-gradient(to right, #CDFEBC 40%, #FFDF94 50%,#FFE3FC 60%); 
+  background-clip: text;
+  color: transparent;
+  margin-bottom: 2rem; /* Khoảng cách dưới tiêu đề */
+  font-weight: bold;
+}
+
+.cardsRow {
+  display: flex;
+  justify-content: center;
+  gap: 20px; /* Khoảng cách giữa các card */
+  margin-bottom: 20px;
+  flex-wrap: nowrap;
+}
+
+.left {
+  position: relative;
+  box-shadow: -5px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+.center {
+  box-shadow: 0 0 0 transparent;
+}
+
+.right {
+  position: relative;
+  box-shadow: 5px 0 10px rgba(0, 0, 0, 0.5);
+}
+
+
+
+/* Hover để tăng độ rõ khi di chuột qua (tùy chọn) */
+.left:hover, .right:hover {
+  box-shadow: -5px 0 5px rgba(0, 0, 0, 0.2); /* Giảm độ mờ khi hover */
+}
+
+.right:hover {
+  box-shadow: 5px 0 5px rgba(0, 0, 0, 0.2); /* Giảm độ mờ khi hover */
+}
+

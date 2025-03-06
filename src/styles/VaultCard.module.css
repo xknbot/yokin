@@ -1,0 +1,125 @@
+.header span:nth-child(1) {
+  position: relative;
+  right: -20px;
+}
+
+.header span:nth-child(5) {
+  position: relative;
+  right: -35px;
+}
+
+
+/* styles/VaultCard.css */
+.vaultCard {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #111111; /* Nền xám đậm */
+  padding: 12px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: background-color 0.3s;
+  height: 85px;
+  max-width: 1200px;
+  border-radius: 4px;
+}
+
+
+
+.vaultInfo {
+  display: flex;
+  align-items: center;
+  gap: 32px;
+}
+
+.logo {
+  border-radius: 50%;
+  position: relative;
+  right: 20px;
+  top: -3px;
+}
+
+.vaultName {
+  font-size: 22px;
+  color: #fff;
+  position: relative;
+  left: -50px;
+}
+
+.yieldSource {
+  display: block;
+  font-size: 12px;
+  color: #a0a0a0;
+  position: relative;
+  left: -50px;
+
+}
+
+.prizeContainer {
+  position: relative;
+  right: 43px;
+  display: flex;
+  flex-direction: column;
+}
+
+.upTo {
+  color: #757575;
+  font-size: 14px;
+}
+
+.prize {
+  position: relative;
+  font-size: 20px;
+  color: #fff;
+  left: 5px;
+}
+
+.apr {
+  font-size: 20px;
+  color: #fff;
+}
+.inApr {
+  position: relative;
+  font-size: 14px;
+  color: #757575;
+  left: 5px;
+
+}
+
+.winChances {
+  position: relative;
+  top: 10px;
+
+}
+
+.depositsContainer {
+  position: relative;
+  left: 20px;
+  text-align: center;
+}
+
+.totalDeposits {
+  font-size: 20px;
+  color: #fff;
+}
+
+.totalDepositsFullNum {
+  display: block;
+  font-size: 14px;
+  color: #757575;
+}
+
+.depositButton {
+  background-color: #fff;
+  color: #000;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.depositButton:hover {
+  background-color: #e0e0e0;
+}

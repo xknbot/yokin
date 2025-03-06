@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+
+
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+  --font-sans: 'SFProDisplay', sans-serif;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+body {
+  color: var(--foreground);
+  background: var(--background);
+  font-family: var(--font-sans);
+}
+
+@font-face {
+  font-family: "SFProDisplay";
+  src: url("/font/SF-Pro-Display-Regular.woff2") format("woff2"),
+       url("/font/SF-Pro-Display-Regular.woff") format("woff"),
+       url("/font/SF-Pro-Display-Regular.otf") format("opentype");
+  font-weight: 400;
+  font-style: normal;
+}

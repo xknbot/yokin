@@ -1,0 +1,11 @@
+/* styles/Participants.module.css */
+.participants {
+  text-align: center;
+  font-size: 16px;
+  margin-top: 20px;
+}
+
+.participants p {
+  margin: 0;
+  color: #fff;
+}
