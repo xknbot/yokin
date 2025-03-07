@@ -1,6 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import GradientCircle from "@/app/components/ui/GradientCircle";
+import CircleDiagonalGradient1 from "@/app/components/ui/CircleDiagonalGradient1"
+import CircleDiagonalGradient2 from "../components/ui/CircleDiagonalGradient2";
 
 type LeaderboardEntry = {
   rank: number;
@@ -19,9 +20,9 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
   return (
     <table className="mx-auto w-[90%] text-white bg-[#09090b] shadow-md">
       <thead>
-        <tr className="border-b border-[#757575] text-[#757575] text-sm">
-          <th className="p-4 text-left ">No</th>
-          <th className="p-4 text-left">Users</th>
+        <tr className="border-b border-[#757575] text-[#757575] text-sm h-12">
+          <th className="p-4 text-center ">No</th>
+          <th className="p-4 text-center">Users</th>
           <th className="p-4 text-center">Referral Points</th>
           <th className="p-4 text-center">Yokin Points</th>
           <th className="p-4 text-center">Total Points</th>
@@ -47,11 +48,12 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
               {entry.user} {entry.isCurrentUser && <span className="text-blue-400">(YOU)</span>}
             </td>
             <td className="p-4 text-center">
-              <div className=""><GradientCircle/></div>
-              <span className="text-white px-2 py-1 inline-block">{entry.referralPoints}</span>
+              <div className="relative top-3 left-23"><CircleDiagonalGradient1/></div>
+              <span className="text-white relative bottom-[9px] inline-block">{entry.referralPoints}</span>
             </td>
             <td className="p-4 text-center">
-              <span className="bg-gray-700 text-white rounded-full px-2 py-1 inline-block">{entry.yokinPoints}</span>
+              <div className="relative top-3 left-23"><CircleDiagonalGradient2/></div>
+              <span className="text-white relative bottom-[9px] inline-block">{entry.yokinPoints}</span>
             </td>
             <td className="p-4 text-center">
                <span className="text-yellow-400">★</span> {entry.totalPoints}
