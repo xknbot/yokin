@@ -21,17 +21,17 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
     <table className="mx-auto w-[90%] text-white bg-[#09090b] shadow-md">
       <thead>
         <tr className="border-b border-[#757575] text-[#757575] text-sm h-12">
-          <th className="p-4 text-center ">No</th>
-          <th className="p-4 text-center">Users</th>
-          <th className="p-4 text-center">Referral Points</th>
-          <th className="p-4 text-center">Yokin Points</th>
-          <th className="p-4 text-center">Total Points</th>
+          <th className="text-[14px] p-4 text-center ">No</th>
+          <th className="text-[14px] p-4 text-left">Users</th>
+          <th className="text-[14px] p-4 text-center">Referral Points</th>
+          <th className="text-[14px] p-4 text-center">Yokin Points</th>
+          <th className="text-[14px] p-4 text-center">Total Points</th>
         </tr>
       </thead>
       <tbody>
         {entries.map((entry) => (
           <tr key={entry.rank} >
-            <td className="p-4 text-center">
+            <td className="text-[14px] p-4 text-center">
               {entry.rank <= 3 ? (
                 <Image
                   src={`/rank${entry.rank}.png`}
@@ -44,18 +44,18 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
                 entry.rank
               )}
             </td>
-            <td className="p-4 text-center">
-              {entry.user} {entry.isCurrentUser && <span className="text-blue-400">(YOU)</span>}
+            <td className="p-4 text-[14px] text-left">
+              {entry.user} {entry.isCurrentUser && <span className="text-blue-400"></span>}
             </td>
             <td className="p-4 text-center">
-              <div className="relative top-3 left-23"><CircleDiagonalGradient1/></div>
-              <span className="text-white relative bottom-[9px] inline-block">{entry.referralPoints}</span>
+              <div className="relative top-3 left-31"><CircleDiagonalGradient1/></div>
+              <span className="text-white text-[14px] relative bottom-[13px] inline-block">{entry.referralPoints}</span>
             </td>
             <td className="p-4 text-center">
-              <div className="relative top-3 left-23"><CircleDiagonalGradient2/></div>
-              <span className="text-white relative bottom-[9px] inline-block">{entry.yokinPoints}</span>
+              <div className="relative top-3 left-31"><CircleDiagonalGradient2/></div>
+              <span className="text-white text-[14px] relative bottom-[13px] inline-block">{entry.yokinPoints}</span>
             </td>
-            <td className="p-4 text-center">
+            <td className="p-4 text-center text-[14px]">
                <span className="text-yellow-400">★</span> {entry.totalPoints}
             </td>
           </tr>
