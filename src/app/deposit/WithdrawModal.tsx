@@ -1,66 +1,100 @@
 'use client'; // Client Component
 
 import React, { useState } from 'react';
-import '@/styles/Modal.module.css'; // Import custom CSS file (adjust path as needed)
 import Button from '../components/ui/Button';
+import '@/styles/Modal.module.css'; // Import custom CSS file (nếu cần)
 
-interface DepositModalProps {
+interface WithdrawModalProps {
   onClose: () => void;
 }
 
-const DepositModal: React.FC<DepositModalProps> = ({ onClose }) => {
+const WithdrawModal: React.FC<WithdrawModalProps> = ({ onClose }) => {
+  const [withdrawAmount, setWithdrawAmount] = useState('');
+  const [balance, setBalance] = useState(10000);
+  const [errorMessage, setErrorMessage] = useState('');
+  const [totalWithdrawn, setTotalWithdrawn] = useState(0);
+  const [totalDeposited, setTotalDeposited] = useState(10000); // Giả định số tiền đã deposit
 
-  const onClick = () => {
-    // Logic to close the modal
-    console.log("Modal closed");
-    // Add your close logic here (e.g., set a state to hide the modal)
+  const handleWithdrawChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const value = e.target.value;
+    const numericValue = value.replace(/[^0-9.]/g, '');
+    if (numericValue === '' || !isNaN(numericValue)) {
+      setWithdrawAmount(numericValue);
+      setErrorMessage('');
+    }
   };
-  const [depositAmount, setDepositAmount] = useState(0);
-  const maxUSDC = 0.0056; // Giá trị USDC tối đa
 
-  const handlePercentage = (percent: number) => {
-    const calculatedAmount = (maxUSDC * (percent / 100)).toFixed(4);
-    setDepositAmount(parseFloat(calculatedAmount));
+  const handleWithdraw = () => {
+    const amount = Number(withdrawAmount);
+    if (isNaN(amount) || amount <= 0) {
+      setErrorMessage('Please enter a valid amount greater than 0.');
+      return;
+    }
+    if (amount > balance) {
+      setErrorMessage(`Insufficient balance. Your balance is $${balance.toFixed(2)}`);
+      return;
+    }
+    setBalance(prevBalance => prevBalance - amount);
+    setTotalWithdrawn(prev => prev + amount);
+    setTotalDeposited(prev => prev - amount); // Giảm số tiền đã deposit
+    setWithdrawAmount('');
+    setErrorMessage(`Withdrawal successful! New balance: $${(balance - amount).toFixed(2)}. Total withdrawn: $${(totalWithdrawn + amount).toFixed(2)}`);
   };
 
   return (
-    <div className='fixed w-full h-full top-0 left-0 z-9'>
-      <div onClick={() => onClose()} className='absolute w-full h-full top-0 left-0 bg-black/20 backdrop-blur-[3px] '></div>
-      
+    <div className="fixed inset-0 bg-black/50 flex items-center justify-center z-50">
+      {/* Overlay với sự kiện onClick để đóng modal */}
+      <div onClick={onClose} className="absolute inset-0"></div>
       <div
-        className="absolute left-[40%] top-[30%] bg-[#111] p-6 rounded-[3px] border border-[#222] shadow-lg w-[387px] text-white z-10"
+        className="bg-[#111] p-6 rounded-[3px] border border-[#222] shadow-lg w-[387px] text-white relative"
+        onClick={(e) => e.stopPropagation()}
       >
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-[#757575] text-[20px] font-bold">Withdraw</h2>
-          <span className="text-[#757575] text-[20px] font-bold">{maxUSDC} USDC</span> {/* Added USDC amount */}
+          <h2 className="text-[#757575] text-[20px] font-bold">{totalWithdrawn.toFixed(4)} USDC</h2>
         </div>
         <div className="mt-8">
+          <label htmlFor="withdraw" className="text-[#a1a1aa] text-[14px]">Deposited Amount: {totalDeposited.toFixed(4)} USDC</label>
           <input
-            type="number"
-            value={depositAmount}
-            readOnly
-            className="w-full text-white text-[30px]"
+            type="text"
+            id="withdraw"
+            value={withdrawAmount}
+            onChange={handleWithdrawChange}
+            placeholder="0"
+            className="w-full text-white text-[30px] bg-transparent focus:outline-none mt-2"
           />
-          <p className="text-[#a1aaaa] text-[14px]">Est Value ($): {depositAmount.toFixed(4)}</p>
+          <p className="text-[#a1aaaa] text-[14px] mt-2">
+            Est Value ($): 0
+          </p>
         </div>
         <div className="flex justify-between mt-8 mb-8 w-[50%]">
           {[25, 50, 75, 100].map((percent) => (
             <button
               key={percent}
-              onClick={() => handlePercentage(percent)}
-              className=" bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-1 text-xs py-1 px-2"
+              onClick={() => {
+                const calculatedAmount = (totalDeposited * (percent / 100)).toFixed(2);
+                setWithdrawAmount(calculatedAmount);
+              }}
+              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-1 text-[12px] py-1 px-2"
             >
               {percent}%
             </button>
           ))}
         </div>
-        <div className='text-center'>
-       <Button label="Withdraw" variant="third" className='w-full'/>
-
+        <div className="text-center">
+          <Button
+            label="Withdraw"
+            variant="third"
+            className="w-full"
+            onClick={handleWithdraw}
+          />
         </div>
+        {errorMessage && (
+          <p className="text-green-600 text-[14px] mt-2 text-center">{errorMessage}</p>
+        )}
       </div>
     </div>
   );
 };
 
-export default DepositModal;
+export default WithdrawModal;

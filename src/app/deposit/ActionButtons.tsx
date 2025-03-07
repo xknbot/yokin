@@ -5,34 +5,30 @@ import Button from '@/app/components/ui/Button'; // Giả sử bạn đã có co
 import { useRouter } from 'next/navigation';
 
 interface ActionButtonsProps {
-  onCloseModal?: () => void; // Thêm prop để đóng modal từ main content
+  onOpenDepositModal: () => void;
+  onOpenWithdrawModal: () => void;
+  onCloseModal?: () => void; // Optional prop để đóng modal nếu cần
 }
 
-const ActionButtons: React.FC<ActionButtonsProps> = ({ onCloseModal }) => {
+const ActionButtons: React.FC<ActionButtonsProps> = ({ 
+  onOpenDepositModal,
+  onOpenWithdrawModal,
+  onCloseModal,
+}) => {
   const router = useRouter();
-
-  // Hàm mở modal Deposit
-  const handleDepositClick = () => {
-    router.push('/deposit?modal=open&type=deposit'); // Mở modal Deposit
-  };
-
-  // Hàm mở modal Withdraw
-  const handleWithdrawClick = () => {
-    router.push('/deposit?modal=open&type=withdraw'); // Mở modal Withdraw
-  };
 
   return (
     <div className="flex justify-center gap-2 mb-[48px]">
       {/* Nút Deposit - Mở DepositModal khi nhấn */}
       <Button
-        onClick={handleDepositClick}
+        onClick={onOpenDepositModal}
         label="Deposit"
         variant="fourth"
       />
 
       {/* Nút Withdraw - Mở WithdrawModal khi nhấn */}
       <Button
-        onClick={handleWithdrawClick}
+        onClick={onOpenWithdrawModal}
         label="Withdraw"
         variant="fourth"
       />
