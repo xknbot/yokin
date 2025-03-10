@@ -1,6 +1,6 @@
 
 import React from 'react';
-import UserWalletInfo from '../../components/ui/UserWalletInfo';
+import UserWalletInfo from '@/app/deposit/(modal)/userwalletinfo/page';
 
 
 const WalletTest = () => {

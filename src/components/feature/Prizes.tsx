@@ -9,9 +9,9 @@ const Prizes = () => {
 
 
     const raffleData = [
-  { id: 1, endTime: new Date("2025-03-10T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
-  { id: 2, endTime: new Date("2025-03-09T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
-  { id: 3, endTime: new Date("2025-03-09T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+  { id: 1, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+  { id: 2, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+  { id: 3, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
     ];
     
     return (

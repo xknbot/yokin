@@ -21,6 +21,7 @@ interface CardProps {
     openParticipation?: string; // Văn bản cho nút Open Participation
   };
   className?: string; // Thêm prop className để nhận class từ Prizes
+  buttonLabel?: string;
 }
 
 const RaffleCard: React.FC<CardProps> = ({
@@ -34,6 +35,7 @@ const RaffleCard: React.FC<CardProps> = ({
     openParticipation: 'Open Participation',
   },
   className, // Nhận className từ Prizes
+  buttonLabel = 'Participate',
 }) => {
   const validEndTime = endTime ? new Date(endTime) : new Date(Date.now() + 24 * 60 * 60 * 1000); // Mặc định là 1 ngày từ bây giờ nếu không có endTime
   return (
@@ -75,7 +77,7 @@ const RaffleCard: React.FC<CardProps> = ({
 
 
       <Button
-        label= "Participate"
+        label={buttonLabel}
         variant="third"
         className={`${styles.participateButton}`}
       />

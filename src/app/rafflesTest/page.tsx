@@ -1,6 +1,6 @@
 
 import React from 'react';
-import MyRaffles from '../../components/ui/MyRaffles';
+import MyRaffles from '@/app/deposit/(modal)/raffle/page';
 
 
 const RafCard = () => {
