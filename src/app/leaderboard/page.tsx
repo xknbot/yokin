@@ -6,7 +6,7 @@ import { leaderboardEntries } from '@/data/mockData';
 
 const LeaderboardPage = () => {
   return (
-    <div className="min-h-screen p-8">
+    <div className="mx-auto w-[85%]">
       <LeaderboardTitle />
       <LeaderboardTable entries={leaderboardEntries} />
     </div>
