@@ -2,10 +2,10 @@
 
 import React from 'react';
 import styles from '@/styles/Card.module.css';
-import Button from '@/app/components/ui/Button';
-import { IoLogoUsd } from 'react-icons/io'; // Biểu tượng USDC
+import Button from '@/components/layout/Button';
+
 import Image from 'next/image';
-import Countdown from '@/app/components/ui/Countdown';
+import Countdown from '@/components/ui/Countdown';
 
 // Định nghĩa interface cho props
 interface CardProps {
@@ -35,6 +35,7 @@ const RaffleCard: React.FC<CardProps> = ({
   },
   className, // Nhận className từ Prizes
 }) => {
+  const validEndTime = endTime ? new Date(endTime) : new Date(Date.now() + 24 * 60 * 60 * 1000); // Mặc định là 1 ngày từ bây giờ nếu không có endTime
   return (
     <div className={`${styles.card} ${className || ''}`}>
       {/* Header của card */}

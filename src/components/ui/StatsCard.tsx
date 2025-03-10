@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
-import BarChart from '@/app/vaults/BarChart';
+import BarChart from '@/components/ui/BarChart';
 import Link from 'next/link';
-import Countdown from '@/app/components/ui/Countdown';
+import Countdown from '@/components/ui/Countdown';
 import styles from "@/styles/DepositPage.module.css";
 
 

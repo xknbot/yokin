@@ -1,5 +1,5 @@
 
-import Prizes from "@/app/prizes/Prizes";
+import Prizes from "@/components/feature/Prizes";
 
 
 export default function Home() {

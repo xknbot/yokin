@@ -1,6 +1,6 @@
 
 
-import Vaults from "@/app/vaults/Vaults";
+import Vaults from "@/components/ui/Vaults";
 
 
 export default function Home() {

@@ -1,9 +1,9 @@
 import React from 'react';
 import Image from 'next/image';
 import styles from '@/styles/VaultCard.module.css';
-import BarChart from '../../app/vaults/BarChart';
+import BarChart from '../../components/ui/BarChart';
 import Link from 'next/link';
-import Button from '@/app/components/ui/Button';
+import Button from '@/components/layout/Button';
 import { useRouter } from 'next/navigation';
 
 

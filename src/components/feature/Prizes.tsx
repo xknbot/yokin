@@ -1,6 +1,8 @@
-import Button from "../components/ui/Button";
+import Button from "../layout/Button";
 import styles from "@/styles/Prizes.module.css";
-import Card from "../components/ui/Card"; 
+import Card from "../layout/Card"; 
+
+
 
 const Prizes = () => {
 

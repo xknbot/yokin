@@ -2,7 +2,7 @@
 import React from 'react';
 import Link from 'next/link'; // Sử dụng Link từ Next.js cho điều hướng
 import styles from '@/styles/Footer.module.css'; // CSS Module cho styling
-import { FaTwitter, FaDiscord, FaTelegram } from 'react-icons/fa'; 
+import { FaDiscord, FaTelegram } from 'react-icons/fa'; 
 import { RiTwitterXLine } from "react-icons/ri";
 
 const Footer = () => {

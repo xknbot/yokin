@@ -1,7 +1,7 @@
 import React from "react";
 import Image from "next/image";
-import CircleDiagonalGradient1 from "@/app/components/ui/CircleDiagonalGradient1"
-import CircleDiagonalGradient2 from "../components/ui/CircleDiagonalGradient2";
+import CircleDiagonalGradient1 from "@/components/ui/CircleDiagonalGradient1"
+import CircleDiagonalGradient2 from "./CircleDiagonalGradient2";
 
 type LeaderboardEntry = {
   rank: number;
@@ -48,11 +48,11 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
               {entry.user} {entry.isCurrentUser && <span className="text-blue-400"></span>}
             </td>
             <td className="p-4 text-center">
-              <div className="relative top-3 left-31"><CircleDiagonalGradient1/></div>
+              <div className="relative top-[17px] left-27"><CircleDiagonalGradient1/></div>
               <span className="text-white text-[14px] relative bottom-[13px] inline-block">{entry.referralPoints}</span>
             </td>
             <td className="p-4 text-center">
-              <div className="relative top-3 left-31"><CircleDiagonalGradient2/></div>
+              <div className="relative top-[17px] left-27"><CircleDiagonalGradient2/></div>
               <span className="text-white text-[14px] relative bottom-[13px] inline-block">{entry.yokinPoints}</span>
             </td>
             <td className="p-4 text-center text-[14px]">

@@ -1,8 +1,7 @@
 'use client'; // Đánh dấu là Client Component
 
 import React from 'react';
-import Button from '@/app/components/ui/Button'; // Giả sử bạn đã có component Button
-import { useRouter } from 'next/navigation';
+import Button from '@/components/layout/Button'; // Giả sử bạn đã có component Button
 
 interface ActionButtonsProps {
   onOpenDepositModal: () => void;
@@ -13,9 +12,7 @@ interface ActionButtonsProps {
 const ActionButtons: React.FC<ActionButtonsProps> = ({ 
   onOpenDepositModal,
   onOpenWithdrawModal,
-  onCloseModal,
 }) => {
-  const router = useRouter();
 
   return (
     <div className="flex justify-center gap-2 mb-[48px]">

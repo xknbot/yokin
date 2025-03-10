@@ -2,13 +2,12 @@
 
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../ui/Button";
-import { useRouter, usePathname } from "next/navigation";
+import Button from "@/components/layout/Button"
+import { usePathname } from "next/navigation";
 import styles from "@/styles/Header.module.css";
 
 
 const Header = () => {
-    const router = useRouter();
     const pathName = usePathname();
 
 
@@ -19,7 +18,7 @@ const Header = () => {
         
     ];
 
-    const isTabActive = (itemHref) => {
+    const isTabActive = (itemHref: string) => {
         if (pathName === itemHref) return true;
         if (itemHref === "/vaults" && pathName.startsWith("/deposit")) return true;
         return false;
@@ -51,6 +50,7 @@ const Header = () => {
 
             <div>
                 <Button label="Connect Wallet" />
+                
             </div>
         </div>
     )

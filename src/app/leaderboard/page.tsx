@@ -1,7 +1,7 @@
 
 import React from 'react';
-import LeaderboardTitle from '@/app/leaderboard/LeaderboardTitle';
-import LeaderboardTable from '@/app/leaderboard/LeaderboardTable';
+import LeaderboardTitle from '@/components/ui/LeaderboardTitle';
+import LeaderboardTable from '@/components/ui/LeaderboardTable';
 import { leaderboardEntries } from '@/data/mockData';
 
 const LeaderboardPage = () => {
