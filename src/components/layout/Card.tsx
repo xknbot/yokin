@@ -9,6 +9,8 @@ import Countdown from '@/components/ui/Countdown';
 
 // Định nghĩa interface cho props
 interface CardProps {
+  size?: 'small' | 'medium' | 'large';
+  width?: string;
   title?: string;
   tvl: string;
   apy: string;
@@ -25,6 +27,7 @@ interface CardProps {
 }
 
 const RaffleCard: React.FC<CardProps> = ({
+
   title = 'Zklend USDC Raffle',
   tvl,
   apy,
@@ -37,7 +40,6 @@ const RaffleCard: React.FC<CardProps> = ({
   className, // Nhận className từ Prizes
   buttonLabel = 'Participate',
 }) => {
-  const validEndTime = endTime ? new Date(endTime) : new Date(Date.now() + 24 * 60 * 60 * 1000); // Mặc định là 1 ngày từ bây giờ nếu không có endTime
   return (
     <div className={`${styles.card} ${className || ''}`}>
       {/* Header của card */}
@@ -57,8 +59,10 @@ const RaffleCard: React.FC<CardProps> = ({
           <Image src="/usdc-logo.png" width={30} height={30} alt="USDC Logo" className={styles.usdcLogo} />
         </div>
       </div>
+
       {/* Thêm Countdown với endTime riêng cho mỗi card */}
       <Countdown endTime={endTime} />
+
       {/* Các chỉ số - hiển thị linh hoạt */}
       <div className={styles.stats}>
         {tvl && <p>Raffle TVL:</p>}
@@ -69,12 +73,10 @@ const RaffleCard: React.FC<CardProps> = ({
         {yieldSource && <p>{yieldSource}</p>}
       </div>
 
-
       <div className={styles.cardInfo}>
         <h2>{buttonText.openParticipation}</h2>
         <h2>Minimum {minimumDeposit}</h2>
       </div>
-
 
       <Button
         label={buttonLabel}

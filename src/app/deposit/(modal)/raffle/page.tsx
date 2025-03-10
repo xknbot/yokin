@@ -73,11 +73,11 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
   const visibleRaffles = filteredRaffles.slice(startIndex, startIndex + cardsPerPage);
 
   return (
-    <div className="mx-auto w-[790px] h-[755px] p-5 text-white font-sans bg-[#111] rounded-lg border border-[#222] overflow-y-auto">
+    <div className="mx-auto w-[60%] h-auto p-5 text-white font-sans bg-[#111] rounded-lg border border-[#222]">
       {/* Breadcrumb Navigation */}
       <div className="text-[14px] text-gray-400 mb-2">
         <span className="cursor-pointer hover:underline"> &larr; Account</span>{' '}
-        <span className="text-white ml-[10px]"> &gt; My Raffles</span>
+        &gt; <span className="text-white ml-[10px]"> My Raffles</span>
       </div>
 
       {/* Tiêu đề và mô tả */}
@@ -88,7 +88,7 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
 
       {/* Tabs: In progress và Completed */}
       <div className="flex justify-between mb-4 text-[14px]">
-        <div className="flex gap-2">
+        <div className="flex gap-2 font-bold">
             <Button
               label="In progress"
               variant={activeTab === 'inProgress' ? 'primary' : 'fourth'}
@@ -112,19 +112,19 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
               />
             )}
         </div>
-      </div>
+      </div>  
 
       {/* Bộ lọc: ALL và EXCLUSIVE ONLY */}
       <div className="flex justify-between mb-5 text-[14px] items-center">
-        <div className="flex gap-2 ">
+        <div className="flex gap-2 font-bold">
             <Button
-              label="ALL"
+              label="All"
               variant={filter === 'all' ? 'primary' : 'fourth'}
               onClick={() => handleFilterChange('all')}
               className="px-4 py-2 text-sm"
             />
             <Button
-              label="EXCLUSIVE ONLY"
+              label="Exclusive Only"
               variant={filter === 'exclusive' ? 'primary' : 'fourth'}
               onClick={() => handleFilterChange('exclusive')}
               className="px-4 py-2 text-sm"
@@ -135,7 +135,7 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
             <button
               onClick={handlePrevious}
               disabled={currentIndex === 0}
-              className={`px-2 py-1 rounded bg-red-500 ${currentIndex === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-700'}`}
+              className={`px-2 py-1 rounded bg-red-500 ${currentIndex === 0 ? '' : 'hover:bg-gray-700'}`}
                   >
                       &lt;
             </button>
@@ -143,7 +143,7 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
             <button
               onClick={handleNext}
               disabled={currentIndex === totalPages - 1 || totalPages === 0}
-              className={`px-2 py-1 rounded bg-green-500 ${currentIndex === totalPages - 1 || totalPages === 0 ? 'opacity-50 cursor-not-allowed' : 'hover:bg-gray-700'}`}
+              className={`px-2 py-1 rounded bg-green-500 ${currentIndex === totalPages - 1 || totalPages === 0 ? '' : 'hover:bg-gray-700'}`}
                   >
                       &gt;
             </button>
@@ -151,12 +151,12 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
       </div>
 
       {/* Danh sách Raffle Cards */}
-        <div className="relative flex items-center gap-2">
+        <div className="flex items-center justify-between">
 
             {/* Danh sách các thẻ raffle */}
             <div className="flex gap-5">
             {visibleRaffles.map((raffle, index) => (
-                <div key={index} className="w-fit relative">
+                <div key={index} className="w-full relative">
                 <RaffleCard
                         title={raffle.title}
                         tvl={raffle.tvl}
@@ -165,8 +165,8 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
                         endTime={raffle.endTime}
                         minimumDeposit={raffle.minimumDeposit}
                         buttonText={{ openParticipation: 'Open Participation' }}
-                        buttonLabel={`Deposited Amount: ${raffle.depositedAmount} USDC`}
-                        className="w-full"
+                        buttonLabel={`Deposited Amount: ${raffle.depositedAmount}`}
+                        className="w-[502px] p-9"
                 />
                 </div>
             ))}

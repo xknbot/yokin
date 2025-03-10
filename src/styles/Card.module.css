@@ -13,15 +13,12 @@
   background-color: #1a1a1a; /* Nền đen */
   border: 1px solid #333;
   border-radius: 8px;
-  padding: 0px 36px;
-  width: 550px; /* Điều chỉnh theo thiết kế của bạn */
-  height: 609px;
+  padding: 36px 36px;
   color: #fff; /* Chữ trắng */
-  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  margin-bottom: 96px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: opacity 0.3s ease;
   text-align: center;
+
 
 }
 
