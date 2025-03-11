@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import BarChart from '@/components/ui/BarChart';
 import Link from 'next/link';
-import Countdown from '@/components/ui/Countdown';
+import Countdown from '@/components/feature/Countdown';
 import styles from "@/styles/DepositPage.module.css";
 
 
@@ -15,6 +15,9 @@ interface StatisticsDetailsProps {
   yieldSourceLink?: string; // Ví dụ: "zkp.zklend.com"
   timeLeft?: string; // Ví dụ: "4d : 19hr : 3m : 21s"
   participants?: number | string; // Ví dụ: "123"
+  countdownWidth?: string | number;
+  countdownHeight?: string | number;
+  countdownTitleClassName?: string;
 }
 
 
@@ -29,6 +32,9 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
   yieldSourceLink = 'zkp.zklend.com',
   timeLeft = '4d : 19hr : 3m : 21s',
   participants = 123,
+  countdownWidth = '',
+  countdownHeight = '',
+  countdownTitleClassName = '',
 }) => {
   // Tính toán endTime dựa trên timeLeft
   const [endTime, setEndTime] = useState<Date | null>(null);
@@ -74,13 +80,13 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
     <div>
       <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-[32px] mb-5 text-white rounded-lg bg-[#0a0a0a]">
         {/* Total Deposited */}
-        <div className="col-span-1 bg-[#1a1a1a] p-4 rounded-lg shadow-md">
+        <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
           <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Total Deposited</h3>
           <p className={`${styles.textGradientCustom} text-center text-[30px] font-bold `}>{totalDeposited}</p>
           <p className="text-center text-[14px] text-[#757575] relative top-[20px]">{totalDepositedAmount}</p>
         </div>
         {/* Win Chance */}
-        <div className="col-span-1 bg-[#1a1a1a] p-4 rounded-lg shadow-md">
+        <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
           <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Win Chance</h3>
           <div className=" text-center items-center gap-2">
             <div className={styles.barChartContainer}>{barChart}</div>
@@ -88,7 +94,7 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
           </div>
         </div>
         {/* Yield Source */}
-        <div className="col-span-1 bg-[#1a1a1a] p-4 rounded-lg shadow-md">
+        <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
           <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Yield Source</h3>
           <p className="text-[30px] font-bold text-center">
             {yieldSource}</p>
@@ -106,14 +112,15 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
       </div>
       {/* Time left & Participants */}
       <div className="grid grid-cols-2 gap-4 mx-auto max-w-3xl  bg-[#0a0a0a] rounded-lg mb-[200px]">
-        <div className="col-span-1 p-4 rounded-lg bg-[#1a1a1a]">
+        <div className="col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
           <p className="text-center text-[16px] font-bold text-[#757575]">Time Left</p>
-          <div className="relative left-[50px]">{endTime ? <Countdown endTime={endTime} /> : <p>Thời gian không hợp lệ</p>}
+          <div className="relative left-1/6">        <Countdown endTime={endTime} width={countdownWidth}
+            titleClassName={countdownTitleClassName} />
             </div>
         </div>
-        <div className="col-span-1 p-4 rounded-lg bg-[#1a1a1a]">
+        <div className="col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
           <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Participants</h3>
-          <p className="text-[30px] text-white font-bold text-center relative top-[35px]">{participants}</p>
+          <p className="text-[30px] text-white font-bold text-center relative top-1/4">{participants}</p>
         </div>
       </div>
     </div>

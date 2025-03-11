@@ -6,7 +6,7 @@ import styles from '@/styles/DepositPage.module.css';
 import Header from '@/components/ui/Header';
 import ActionButtons from '@/components/ui/ActionButtons';
 import AccountInfo from '@/components/ui/AccountInfo';
-import StatisticsDetails from '../../../components/ui/StatsCard';
+import StatisticsDetails from '../../../components/feature/StatsCard';
 
 export default function DepositPage() {
 
@@ -50,6 +50,8 @@ export default function DepositPage() {
           yieldSourceLink="zkp.zklend.com"
           timeLeft="4d : 19hr : 3m : 21s"
           participants={125}
+          countdownWidth={200}
+          countdownTitleClassName='!hidden'
         />
       </>
     );

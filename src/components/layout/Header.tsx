@@ -49,7 +49,8 @@ const Header = () => {
             </nav>
 
             <div>
-                <Button label="Connect Wallet" />
+                <Button label="Connect Wallet"
+                variant="primary"/>
                 
             </div>
         </div>

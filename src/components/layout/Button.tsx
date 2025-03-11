@@ -1,3 +1,5 @@
+'use client'
+
 // Define type for props
 interface ButtonProps {
   label: string;
@@ -17,7 +19,7 @@ export default function Button({
   className = "",
   type = "button",
 }: ButtonProps) {
-  const baseStyles = "px-8 py-1 rounded text-[14px]";
+  const baseStyles = "px-8 py-1 rounded text-[14px] border border-transparent";
   const variantStyles = {
     primary:
       "bg-white text-black hover:text-white hover:bg-transparent hover:border hover:border-white hover:cursor-pointer transition duration-600 ease-in-out",

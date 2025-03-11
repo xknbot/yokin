@@ -11,7 +11,7 @@ const CircleDiagonalGradient2 = () => {
             <stop offset="100%" style={{ stopColor: '#313131' }} /> {/* gray-700 */}
           </linearGradient>
         </defs>
-        <circle cx="10" cy="10" r="10" fill="url(#diagonalGradient2)" />
+        <circle cx="20" cy="20" r="20" fill="url(#diagonalGradient2)" />
       </svg>
     </div>
   );

@@ -2,32 +2,39 @@
 
 import React from 'react';
 import styles from '@/styles/Card.module.css';
+import Image from 'next/image';
+import Countdown from '@/components/feature/Countdown'; // Đảm bảo đường dẫn đúng
 import Button from '@/components/layout/Button';
 
-import Image from 'next/image';
-import Countdown from '@/components/ui/Countdown';
-
-// Định nghĩa interface cho props
 interface CardProps {
   size?: 'small' | 'medium' | 'large';
-  width?: string;
+  width?: string | number;
+  height?: string | number;
   title?: string;
-  tvl: string;
-  apy: string;
-  yieldSource: string;
-  endTime: Date | string; // Thời gian kết thúc (timestamp hoặc Date object)
+  tvl?: string;
+  apy?: string;
+  yieldSource?: string;
+  endTime?: Date | string;
   minimumDeposit?: string;
-  icon?: React.ReactNode; // Cho phép truyền icon tùy chỉnh
-  linkHref?: string; // Đường dẫn cho Link, mặc định là "/usdc"
+  icon?: React.ReactNode;
+  linkHref?: string;
   buttonText?: {
-    openParticipation?: string; // Văn bản cho nút Open Participation
+    openParticipation?: string;
   };
-  className?: string; // Thêm prop className để nhận class từ Prizes
+  className?: string;
   buttonLabel?: string;
+  countdownWidth?: string | number;
+  countdownHeight?: string | number;
+  countdownTitleClassName?: string;
+  cardInfoClassName?: string;
+  cardBgColor?: string;
+  usdcClassName?: string;
+  cardTimeBoxClassName?: string;
+  
+
 }
 
 const RaffleCard: React.FC<CardProps> = ({
-
   title = 'Zklend USDC Raffle',
   tvl,
   apy,
@@ -37,33 +44,74 @@ const RaffleCard: React.FC<CardProps> = ({
   buttonText = {
     openParticipation: 'Open Participation',
   },
-  className, // Nhận className từ Prizes
+  className = '',
   buttonLabel = 'Participate',
+  width = '496px',
+  height = '642px',
+  countdownWidth = '200px', // Mặc định như bạn muốn
+  countdownHeight = 'auto',
+  countdownTitleClassName = '',
+  cardInfoClassName = '',
+  cardBgColor = '',
+  usdcClassName = '',
+  cardTimeBoxClassName='',
+
 }) => {
+  const cardWidth = typeof width === 'number' ? `${width}px` : width;
+  const cardHeight = typeof height === 'number' ? `${height}px` : height;
+
+  const defaultWidth = 496;
+  const defaultHeight = 642;
+  const widthValue = parseFloat(cardWidth) || defaultWidth;
+  const heightValue = parseFloat(cardHeight) || defaultHeight;
+  const widthScale = widthValue / defaultWidth;
+  const heightScale = heightValue / defaultHeight;
+  const scale = Math.min(widthScale, heightScale);
+
+  const logoSize = 80 * scale;
+  const usdcLogoSize = 30 * scale;
+
   return (
-    <div className={`${styles.card} ${className || ''}`}>
-      {/* Header của card */}
+    <div
+      className={`${styles.card} ${className} ${cardBgColor}`}
+      style={{
+        width: cardWidth,
+        height: cardHeight,
+        '--scale': scale,
+      } as React.CSSProperties}
+    >
       <div className={styles.cardHeader}>
         <div className={styles.cardTitleContainer}>
           <Image
             src="/zklend-logo.png"
-            width={80}
-            height={80}
+            width={logoSize}
+            height={logoSize}
             alt="ZKlend Logo"
             className={styles.logoZklend}
           />
           <h3 className={styles.cardTitle}>{title}</h3>
         </div>
         <div className={styles.usdcContainer}>
-          <h3>USDC</h3>
-          <Image src="/usdc-logo.png" width={30} height={30} alt="USDC Logo" className={styles.usdcLogo} />
+          <h3 className={usdcClassName}>USDC</h3>
+          <Image
+            src="/usdc-logo.png"
+            width={usdcLogoSize}
+            height={usdcLogoSize}
+            alt="USDC Logo"
+            className={styles.usdcLogo}
+          />
         </div>
       </div>
 
-      {/* Thêm Countdown với endTime riêng cho mỗi card */}
-      <Countdown endTime={endTime} />
+      {/* Sửa lỗi cú pháp và truyền countdownClassName */}
+      <Countdown
+        endTime={endTime}
+        width={countdownWidth}
+        height={countdownHeight} // Truyền từ props thay vì hardcode
+        titleClassName={countdownTitleClassName}
+        timeBoxClassName={cardTimeBoxClassName}
+      />
 
-      {/* Các chỉ số - hiển thị linh hoạt */}
       <div className={styles.stats}>
         {tvl && <p>Raffle TVL:</p>}
         {apy && <p>APY:</p>}
@@ -74,19 +122,17 @@ const RaffleCard: React.FC<CardProps> = ({
       </div>
 
       <div className={styles.cardInfo}>
-        <h2>{buttonText.openParticipation}</h2>
-        <h2>Minimum {minimumDeposit}</h2>
+        <h2 className={cardInfoClassName}>{buttonText.openParticipation}</h2>
+        <h2 className={cardInfoClassName}>Minimum {minimumDeposit}</h2>
       </div>
 
       <Button
         label={buttonLabel}
         variant="third"
-        className={`${styles.participateButton}`}
+        className={styles.participateButton}
       />
     </div>
   );
 };
-
-
 
 export default RaffleCard;

@@ -16,11 +16,11 @@ const VaultHeader: React.FC<VaultHeaderProps> = ({
   return (
     <div className="text-center mb-8">
       <h1 className="text-3xl font-bold text-white mb-6">{title}</h1>
-      <div className="flex justify-between border border-[#1a1a1a] w-[60%] mx-auto p-1 rounded h-[40px]">
+      <div className="flex justify-between bg-[#111] border border-[#2c2c2c] w-[60%] mx-auto  rounded h-[40px]">
         {filterOptions.map((option) => (
           <button
             key={option}
-            className={`px-4 rounded text-sm w-full ${
+            className={`px-4 rounded text-sm w-full m-0.5 ${
               selectedFilter === option
                 ? "bg-white text-black"
                 : "bg-[#111111] text-[#757575]"

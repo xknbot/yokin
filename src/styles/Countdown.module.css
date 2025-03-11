@@ -1,61 +1,47 @@
 .countdown {
-  padding: 20px;
   display: flex;
   flex-direction: column;
-  align-items: center;
-}
-
-.label {
-  color: #ccc;
-  font-size: 21px;
-  align-self: flex-start;
-  position: relative;
-  right: 20px;
+  align-items: start;
 
 
 }
 
 .timer {
   display: flex;
-  position: relative;
-  right: 50px;
-  margin-top: 20px;
-  gap: 10px;
-
+  margin-top: calc(20px * var(--scale, 1));
+  gap: calc(10px * var(--scale, 1));
 }
 
 .timeBox {
   background-color: rgba(255, 255, 255, 0.2);
-  width: 60px;
-  height: 60px;
+  width: calc(60px * var(--scale, 1));
+  height: calc(60px * var(--scale, 1));
   border-radius: 4px;
-  box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   position: relative;
-  padding-right: 5px;
-
+  padding-right: calc(5px * var(--scale, 1));
 }
 
 .number {
   color: white;
-  font-size: 1rem;
+  font-size: calc(1rem * var(--scale, 1));
   font-family: SFProDisplay;
   position: absolute;
-  top: 15px;
-  left: 10px;
-
+  top: calc(15px * var(--scale, 1));
+  left: calc(10px * var(--scale, 1));
 }
 
 .unit {
   color: #ccc;
-  font-size: 0.8rem;
+  font-size: calc(0.8rem * var(--scale, 1));
   position: absolute;
-  top: 20px;
-  left: 37px;
+  top: calc(20px * var(--scale, 1));
+  left: calc(37px * var(--scale, 1));
 }
 
 .colon {
   color: #ccc;
-  font-size: 1.5rem;
+  font-size: calc(1.5rem * var(--scale, 1));
   position: relative;
-  top: 5px;
+  top: calc(5px * var(--scale, 1));
 }

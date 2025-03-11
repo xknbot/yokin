@@ -2,12 +2,13 @@
 'use client';
 
 import React, { useState } from 'react';
-import RaffleCard from '@/components/layout/Card'; // Tái sử dụng RaffleCard
+import Card from '@/components/layout/Card'; // Tái sử dụng RaffleCard
 import Button from '@/components/layout/Button'; // Tái sử dụng Button
+import Carousel from "@/components/feature/Carousel";
 
 
 // Định nghĩa interface cho props của Raffle
-interface Raffle {
+interface RafflesData {
   title: string;
   tvl: string;
   apy: string;
@@ -18,11 +19,11 @@ interface Raffle {
 }
 
 // Định nghĩa interface cho props của MyRaffles
-interface MyRafflesProps {
-  raffles: Raffle[]; // Danh sách các raffles
+interface MyRafflesDataProps {
+  raffles: RafflesData[]; // Danh sách các raffles
 }
 
-const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
+const MyRafflesData: React.FC<MyRafflesDataProps> = ({ raffles }) => {
   const [activeTab, setActiveTab] = useState<'inProgress' | 'completed'>('inProgress');
     const [filter, setFilter] = useState<'all' | 'exclusive'>('all');
     const [currentIndex, setCurrentIndex] = useState(0); // Theo dõi vị trí hiện tại của carousel
@@ -73,7 +74,7 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
   const visibleRaffles = filteredRaffles.slice(startIndex, startIndex + cardsPerPage);
 
   return (
-    <div className="mx-auto w-[60%] h-auto p-5 text-white font-sans bg-[#111] rounded-lg border border-[#222]">
+    <div className="mx-auto w-[44%] h-auto p-5 text-white font-sans bg-[#111] rounded-lg border border-[#222]">
       {/* Breadcrumb Navigation */}
       <div className="text-[14px] text-gray-400 mb-2">
         <span className="cursor-pointer hover:underline"> &larr; Account</span>{' '}
@@ -81,10 +82,24 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
       </div>
 
       {/* Tiêu đề và mô tả */}
-      <h1 className="text-[20px] font-bold mb-2 mt-[48px]">My Raffles</h1>
-      <p className="text-[14px] text-[#757575] mb-5">
-        here you can see all raffles you’re currently participating in
-      </p>
+      <div className="flex justify-between items-center">
+        <div>
+          <h1 className="text-[20px] font-bold mb-2 mt-[48px]">My Raffles</h1>
+          <p className="text-[14px] text-[#757575] mb-5">
+            here you can see all raffles you’re currently participating in
+          </p>
+        </div>
+        <div>
+          {activeTab === 'completed' && (
+                  <Button
+                    label="Claim"
+                    variant="fourth" // Có thể tùy chỉnh variant (ví dụ: 'primary' nếu muốn nổi bật)
+                    onClick={handleClaim}
+                    className="px-4 py-2 text-sm"
+                  />
+                )}
+        </div>
+      </div>
 
       {/* Tabs: In progress và Completed */}
       <div className="flex justify-between mb-4 text-[14px]">
@@ -102,20 +117,11 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
               className="px-4 py-2 text-sm"
             />
         </div>
-        <div className="flex">
-            {activeTab === 'completed' && (
-              <Button
-                label="Claim"
-                variant="fourth" // Có thể tùy chỉnh variant (ví dụ: 'primary' nếu muốn nổi bật)
-                onClick={handleClaim}
-                className="px-4 py-2 text-sm"
-              />
-            )}
-        </div>
+
       </div>  
 
       {/* Bộ lọc: ALL và EXCLUSIVE ONLY */}
-      <div className="flex justify-between mb-5 text-[14px] items-center">
+      <div className="flex justify-between text-[14px] items-center">
         <div className="flex gap-2 font-bold">
             <Button
               label="All"
@@ -130,54 +136,21 @@ const MyRaffles: React.FC<MyRafflesProps> = ({ raffles }) => {
               className="px-4 py-2 text-sm"
             />
         </div>
-        <div className="flex gap-2">
-            {/* Nút Previous */}
-            <button
-              onClick={handlePrevious}
-              disabled={currentIndex === 0}
-              className={`px-2 py-1 rounded bg-red-500 ${currentIndex === 0 ? '' : 'hover:bg-gray-700'}`}
-                  >
-                      &lt;
-            </button>
-            {/* Nút Next */}
-            <button
-              onClick={handleNext}
-              disabled={currentIndex === totalPages - 1 || totalPages === 0}
-              className={`px-2 py-1 rounded bg-green-500 ${currentIndex === totalPages - 1 || totalPages === 0 ? '' : 'hover:bg-gray-700'}`}
-                  >
-                      &gt;
-            </button>
-        </div>
       </div>
 
       {/* Danh sách Raffle Cards */}
-        <div className="flex items-center justify-between">
+        <div className="">
+              <Carousel />
+            
 
-            {/* Danh sách các thẻ raffle */}
-            <div className="flex gap-5">
-            {visibleRaffles.map((raffle, index) => (
-                <div key={index} className="w-full relative">
-                <RaffleCard
-                        title={raffle.title}
-                        tvl={raffle.tvl}
-                        apy={raffle.apy}
-                        yieldSource={raffle.yieldSource}
-                        endTime={raffle.endTime}
-                        minimumDeposit={raffle.minimumDeposit}
-                        buttonText={{ openParticipation: 'Open Participation' }}
-                        buttonLabel={`Deposited Amount: ${raffle.depositedAmount}`}
-                        className="w-[502px] p-9"
-                />
-                </div>
-            ))}
         </div>
 
 
-      </div>
     </div>
+    
   );
 };
 
-export default MyRaffles;
+export default MyRafflesData;
 
 

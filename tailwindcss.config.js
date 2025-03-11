@@ -1,4 +1,7 @@
 module.exports = {
+  content: [
+    './src/**/*.{js,ts,jsx,tsx}', // Đường dẫn đến các file của bạn
+  ],
   theme: {
     extend: {
       colors: {
