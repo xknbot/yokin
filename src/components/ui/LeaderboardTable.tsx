@@ -3,6 +3,7 @@ import Image from "next/image";
 import CircleDiagonalGradient1 from "@/components/ui/CircleDiagonalGradient1"
 import CircleDiagonalGradient2 from "./CircleDiagonalGradient2";
 
+
 type LeaderboardEntry = {
   rank: number;
   user: string;
@@ -31,7 +32,8 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
       <tbody>
         {entries.map((entry, index) => (
           <tr key={entry.rank}
-          className={`p-4 text-center ${index === 0 ? 'border-b border-[#27272a]' : ''}`}>
+            className={`p-4 text-center ${index === 0 ? 'border-b border-[#27272a]' : ''} 
+          ${index === entries.length - 1 ? 'bg-[#2c2c2c]' : ''}`}>
             <td className="text-[14px] p-4 text-center">
               {entry.rank <= 3 ? (
                 <Image
