@@ -17,7 +17,7 @@ const Header = () => {
   };
   
   return (
-    <header className="bg-[#0a0a0a] text-gray-400 p-4 flex items-center justify-between">
+    <header className="text-gray-400 p-4 flex items-center justify-between">
       {/* Nút Back ở góc trái */}
       <button onClick={backToVault} className="text-xs font-medium hover:text-gray-300 hover:cursor-pointer hover:underline relative left-[350px] bottom-[65px]">
         &lt; Back

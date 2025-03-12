@@ -3,8 +3,10 @@
 
 import React, { useState } from 'react';
 import Card from '@/components/layout/Card'; // Tái sử dụng RaffleCard
-import Button from '@/components/layout/Button'; // Tái sử dụng Button
+
 import Carousel from "@/components/feature/Carousel";
+import Button from "@/components/ui/Button";
+
 
 
 // Định nghĩa interface cho props của Raffle
@@ -69,22 +71,20 @@ const MyRafflesData: React.FC<MyRafflesDataProps> = ({ raffles }) => {
     setCurrentIndex((prev) => Math.min(prev + 1, totalPages - 1));
   };
 
-  // Lấy các thẻ cần hiển thị dựa trên currentIndex
-  const startIndex = currentIndex * cardsPerPage;
-  const visibleRaffles = filteredRaffles.slice(startIndex, startIndex + cardsPerPage);
+
 
   return (
     <div className="mx-auto w-[44%] h-auto p-5 text-white font-sans bg-[#111] rounded-lg border border-[#222]">
       {/* Breadcrumb Navigation */}
       <div className="text-[14px] text-gray-400 mb-2">
-        <span className="cursor-pointer hover:underline"> &larr; Account</span>{' '}
+        <span className="cursor-pointer hover:underline"> &larr; Account</span>&nbsp;
         &gt; <span className="text-white ml-[10px]"> My Raffles</span>
       </div>
 
       {/* Tiêu đề và mô tả */}
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-[20px] font-bold mb-2 mt-[48px]">My Raffles</h1>
+          <h1 className="text-[20px] font-semibold mb-2 mt-[48px]">My Raffles</h1>
           <p className="text-[14px] text-[#757575] mb-5">
             here you can see all raffles you’re currently participating in
           </p>
@@ -92,55 +92,53 @@ const MyRafflesData: React.FC<MyRafflesDataProps> = ({ raffles }) => {
         <div>
           {activeTab === 'completed' && (
                   <Button
-                    label="Claim"
+
                     variant="fourth" // Có thể tùy chỉnh variant (ví dụ: 'primary' nếu muốn nổi bật)
                     onClick={handleClaim}
-                    className="px-4 py-2 text-sm"
-                  />
+                    size='large'
+                  >Claim</Button>
                 )}
         </div>
       </div>
 
       {/* Tabs: In progress và Completed */}
-      <div className="flex justify-between mb-4 text-[14px]">
-        <div className="flex gap-2 font-bold">
+      <div className="flex justify-between mb-4 text-[14px] bg-[#1e1e1e] max-w-fit py-1 rounded-sm">
+        <div className="flex gap-1 font-semibold text-sm text-[#767676]">
             <Button
-              label="In progress"
-              variant={activeTab === 'inProgress' ? 'primary' : 'fourth'}
-              onClick={() => handleTabChange('inProgress')}
-              className="px-4 py-2 text-sm"
-            />
+              variant={activeTab === 'inProgress' ? 'fifth' : ''}
+            onClick={() => handleTabChange('inProgress')}
+            size='large'
+            >In progress</Button>
             <Button
-              label="Completed"
-              variant={activeTab === 'completed' ? 'primary' : 'fourth'}
+              variant={activeTab === 'completed' ? 'fifth' : ''}
               onClick={() => handleTabChange('completed')}
-              className="px-4 py-2 text-sm"
-            />
+                size='large'
+            >Completed</Button>
         </div>
 
       </div>  
 
       {/* Bộ lọc: ALL và EXCLUSIVE ONLY */}
-      <div className="flex justify-between text-[14px] items-center">
-        <div className="flex gap-2 font-bold">
+      <div className="flex justify-between text-[14px] items-center mb-2">
+        <div className="flex gap-2 font-semibold text-sm">
             <Button
-              label="All"
-              variant={filter === 'all' ? 'primary' : 'fourth'}
+              variant={filter === 'all' ? 'fifth' : ''}
               onClick={() => handleFilterChange('all')}
-              className="px-4 py-2 text-sm"
-            />
+            size='small'
+            className='text-[#767676] bg-[#1e1e1e]'
+            >All </Button>
             <Button
-              label="Exclusive Only"
-              variant={filter === 'exclusive' ? 'primary' : 'fourth'}
+              variant={filter === 'exclusive' ? 'fifth' : ''}
               onClick={() => handleFilterChange('exclusive')}
-              className="px-4 py-2 text-sm"
-            />
+            size='small'
+            className='text-[#767676] bg-[#1e1e1e]'
+            >Exclusive Only</Button>
         </div>
       </div>
 
       {/* Danh sách Raffle Cards */}
         <div className="">
-              <Carousel />
+              <Carousel depositedAmount='20' />
             
 
         </div>

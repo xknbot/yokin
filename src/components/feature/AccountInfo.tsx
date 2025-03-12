@@ -1,4 +1,5 @@
 import React from 'react';
+import { FaRegCopy } from 'react-icons/fa'; // Thêm import icon
 
 interface AccountStatusProps {
   balance?: number | string;
@@ -13,7 +14,7 @@ const AccountStatus: React.FC<AccountStatusProps> = ({
   winChance = 0,
   prizeToken = 'USD',
   depositToken = 'USDC',
-  vaultOwner = '0x003D...SD5',
+  vaultOwner = '0x003D...SD5 ',
 }) => {
   const renderItem = (label: string, value: string | number | React.ReactNode) => (
     <div className="flex justify-between items-center py-1">
@@ -41,23 +42,31 @@ const AccountStatus: React.FC<AccountStatusProps> = ({
 
   const prizeTokenValue =
     prizeParts.length > 1 ? (
-      <>
+      <div className='flex'>
         {prizeParts[0]} <span style={{ color: 'gray' }}>{`| ${prizeParts[1]}`}</span>
-      </>
+        <FaRegCopy style={{ color: 'gray', marginLeft: '8px', cursor: 'pointer' }} /> {/* Thêm icon */}
+      </div>
     ) : (
       prizeToken
     );
 
   const depositTokenValue =
     depositParts.length > 1 ? (
-      <>
+      <div className='flex'>
         {depositParts[0]} <span style={{ color: 'gray' }}>{`| ${depositParts[1]}`}</span>
-      </>
+        <FaRegCopy style={{ color: 'gray', marginLeft: '8px', cursor: 'pointer' }} /> {/* Thêm icon */}
+      </div>
     ) : (
       depositToken
     );
 
-  const vaultOwnerValue = <span style={{ color: 'gray' }}>{vaultOwner}</span>;
+  // Cập nhật vaultOwnerValue để thêm icon FaRegCopy
+  const vaultOwnerValue = (
+    <div className='flex'>
+      <span style={{ color: 'gray' }}>{vaultOwner}</span>
+      <FaRegCopy style={{ color: 'gray', marginLeft: '8px', cursor: 'pointer' }} /> {/* Thêm icon */}
+    </div>
+  );
 
   return (
     <div className="max-w-2xl flex flex-col gap-1 mx-auto">

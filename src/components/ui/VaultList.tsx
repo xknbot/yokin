@@ -20,9 +20,9 @@ type VaultListProps = {
 
 const VaultList: React.FC<VaultListProps> = ({ vaults }) => {
   return (
-    <div className="rounded-lg bg-blac border border-[#2c2c2c] text-white p-4 max-w-4xl mx-auto">
+    <div className="rounded-lg bg-[#000] border border-[#2c2c2c] text-white p-4 max-w-[1192px] mx-auto">
       {/* Header của danh sách */}
-      <div className={`${styles.header} flex flex-row items-center justify-between mb-4 text-sm text-gray-400`}>
+      <div className={`${styles.header} flex items-center justify-between mb-4 text-sm text-gray-400`}>
         <span className="basis-2/10" >Prize Vaults</span>
         <span className="basis-1/10">Prizes</span>
         <span className="basis-1/10">Win Chances</span>

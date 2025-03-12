@@ -1,7 +1,7 @@
 /* DepositPage.module.css */
 @layer utilities {
     .textGradientCustom {
-      background: linear-gradient(to right, #4CAF50 40%, #FFEB3B 50%, #F48FB1 60%);
+      background: linear-gradient(to right, var(--color-green-1) 40%, var(--color-yellow-1) 50%, var(--color-pink-1) 60%);
       -webkit-background-clip: text;
       background-clip: text;
       color: transparent;
@@ -31,8 +31,8 @@
 
 .barChartContainer {
   position: relative;
-  left: 90px;
-  top: 4px;
+  left: 80px;
+
 
 }
 

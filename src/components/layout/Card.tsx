@@ -4,8 +4,8 @@ import React from 'react';
 import styles from '@/styles/Card.module.css';
 import Image from 'next/image';
 import Countdown from '@/components/feature/Countdown'; // Đảm bảo đường dẫn đúng
-import Button from '@/components/layout/Button';
-import Button1 from '@/components/ui/Button1';
+
+import Button from '@/components/ui/Button';
 
 interface CardProps {
   size?: 'small' | 'medium' | 'large';
@@ -31,7 +31,7 @@ interface CardProps {
   cardBgColor?: string;
   usdcClassName?: string;
   cardTimeBoxClassName?: string;
-  
+  disabled?: boolean;
 
 }
 
@@ -55,7 +55,8 @@ const RaffleCard: React.FC<CardProps> = ({
   cardInfoClassName = '',
   cardBgColor = '',
   usdcClassName = '',
-  cardTimeBoxClassName='',
+  cardTimeBoxClassName = '',
+  disabled = false,
 
 }) => {
   const cardWidth = typeof width === 'number' ? `${width}px` : width;
@@ -126,9 +127,9 @@ const RaffleCard: React.FC<CardProps> = ({
         <h2 className={cardInfoClassName}>{buttonText.openParticipation}</h2>
         <h2 className={cardInfoClassName}>Minimum {minimumDeposit}</h2>
       </div>
-      <Button1 variant='third' size='large' >
-        Participate
-      </Button1>
+      <Button variant='third' size='large' disabled={disabled}>
+        {buttonLabel}
+      </Button>
 
     </div>
   );

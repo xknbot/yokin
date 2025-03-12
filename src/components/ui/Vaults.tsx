@@ -131,16 +131,25 @@ const mockVaults: Vault[] = [
 ];
 
 const Vaults: React.FC = () => {
+  const imageMap = {
+    "All assets": "/all-assets.png",
+    "PrizeUSDC": "/prize-usdc.png",
+    "PrizeAleo": "/prize-aleo.png",
+    "PrizeWETH": "/prize-weth.png",
+    "ZKlendUSDC": "/prize-weth.png",
+  };
+
   const [selectedFilter, setSelectedFilter] = useState("All assets");
-  const filterOptions = ["All assets", "PrizeUSDC","PrizeAleo", "PrizeWETH", "ZklendUSDC"];
+  const filterOptions = ["All assets", "PrizeUSDC","PrizeAleo", "PrizeWETH", "ZklendUSDC", ">"];
 
   return (
-    <div className="bg-[#0a0a0a] min-h-screen p-10">
+    <div className="bg-[#000] min-h-screen p-10">
       <VaultHeader
         title="Deposit tokens. Win prizes. No loss."
         filterOptions={filterOptions}
         selectedFilter={selectedFilter}
         onFilterChange={setSelectedFilter}
+        imageMap={imageMap} // Pass imageMap as a prop
       />
       <VaultList vaults={mockVaults} />
       

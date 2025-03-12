@@ -9,7 +9,7 @@ import "@/styles/globals.css";
 interface ButtonProps {
   children: React.ReactNode;
   type?: 'button' | 'submit' | 'reset';
-  variant?: 'primary' | 'secondary' | 'third';
+  variant?: 'primary' | 'secondary' | 'third' | 'fourth' | 'fifth';
   size?: 'small' | 'medium' | 'large';
   disabled?: boolean;
   loading?: boolean;
@@ -42,7 +42,10 @@ const Button: React.FC<ButtonProps> = ({
       [styles['button--disabled']]: disabled,
       [styles['button--loading']]: loading,
     },
-    className
+    className,
+    {
+      [styles['no-hover']]: disabled, // Thêm class để loại bỏ hover khi disabled
+    }
   );
 
   return (

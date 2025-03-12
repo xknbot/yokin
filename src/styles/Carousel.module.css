@@ -1,0 +1,10 @@
+.disabled-card :where(.button-third) {
+  /* Đảm bảo button không có hiệu ứng hover khi disabled */
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.disabled-card :where(.button-third:hover) {
+  /* Bỏ hiệu ứng hover */
+  background-color: #4b5563; /* Màu ban đầu của button-third */
+}

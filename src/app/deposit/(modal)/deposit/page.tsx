@@ -1,9 +1,10 @@
 'use client'; // Client Component
 
 import React, { useState } from 'react';
-import Button from '@/components/layout/Button';
 import '@/styles/Modal.module.css'; // Import custom CSS file
 import { useRouter } from "next/navigation";
+import Button1 from "../../../../components/ui/Button";
+
 
 
 
@@ -74,30 +75,27 @@ const DepositModal: React.FC<DepositModalProps> = ({ onClose }) => {
             value={depositAmount > 0 ? depositAmount : ""}
             onChange={handleDepositChange}
             placeholder={depositAmount > 0 ? "" : "0"}
-            className="w-full text-white text-[30px] bg-transparent focus:outline-none mt-2"
+            className="w-full !text-[#fafafa] !text-[30px] bg-transparent focus:outline-none mt-2"
           />
           <p className="text-[#a1aaaa] text-[14px] mt-2">
             Est Value ($): {getEstimatedValue()}
           </p>
         </div>
-        <div className="flex justify-between mt-8 mb-8 w-[50%]">
+        <div className="flex justify-between gap-2 mt-8 mb-8 w-[50%]">
           {[25, 50, 75, 100].map((percent) => (
             <button
               key={percent}
               onClick={() => handlePercentage(percent)}
-              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-1 text-[12px] py-1 px-2"
+              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-2 text-[12px] py-1 px-2"
             >
               {percent}%
             </button>
           ))}
         </div>
         <div className="text-center">
-          <Button
-            label="Deposit"
-            variant="third"
-            className="w-full"
-            onClick={handleDeposit}
-          />
+          <Button1 variant="third" size="large" onClick={handleDeposit} className="w-full">
+          Deposit
+          </Button1>
         </div>
       </div>
     </div>

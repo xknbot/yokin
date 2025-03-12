@@ -4,7 +4,7 @@ import "../../styles/globals.css";
 import Button from "../layout/Button";
 import styles from "@/styles/Prizes.module.css";
 import Card from "../layout/Card"; 
-import Button1 from "@/components/ui/Button1";
+import Button1 from "@/components/ui/Button";
 
 
 const Prizes = () => {
@@ -12,9 +12,9 @@ const Prizes = () => {
 
 
     const raffleData = [
-  { id: 1, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
-  { id: 2, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
-  { id: 3, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+  { id: 1, endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+  { id: 2, endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+  { id: 3, endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
     ];
     
     return (

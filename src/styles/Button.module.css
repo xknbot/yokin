@@ -25,6 +25,7 @@
 }
 .button--secondary:hover {
   background-image: linear-gradient(to right, var(--color-green-2) 30%, var(--color-yellow-2) 50%, var(--color-pink-2) 90%);
+  border: 1px solid;
   color: var(--color-black-2);
 }
 
@@ -35,9 +36,25 @@
 }
 .button--third:hover {
   background-image: linear-gradient(to right, var(--color-green-2) 30%, var(--color-yellow-2) 50%, var(--color-pink-2) 90%);
+  border: 1px solid;
   color: var(--color-black-2);
 
 
+}
+
+.button--fourth {
+  background-color: var(--color-black-2);
+  color: var(--color-gray-5);
+}
+
+.button--fourth:hover {
+  background-color: var(--color-white-2);
+  border: 1px solid;
+  color: var(--color-black-1);
+}
+.button--fifth {
+  background-color: var(--color-white-2);
+  color: var(--color-black-1);
 }
 
 .button--small {
@@ -53,7 +70,7 @@
 
 
 .button--large {
-  padding: 14px 28px;
+  padding: 10px 32px;
   font-size: var(--md);
 }
 
@@ -75,6 +92,11 @@
   border-top: 2px solid transparent;
   border-radius: 50%;
   animation: spin 1s linear infinite;
+}
+.no-hover:hover {
+  /* Loại bỏ hiệu ứng hover khi disabled */
+  background-color: initial !important; /* Giữ màu ban đầu */
+  cursor: not-allowed !important; /* Đảm bảo con trỏ không thay đổi */
 }
 
 @keyframes spin {

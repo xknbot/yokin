@@ -1,7 +1,7 @@
 'use client'; // Đánh dấu là Client Component
 
 import React from 'react';
-import Button from '@/components/layout/Button'; // Giả sử bạn đã có component Button
+import Button from "../../components/ui/Button";
 
 interface ActionButtonsProps {
   onOpenDepositModal: () => void;
@@ -15,20 +15,26 @@ const ActionButtons: React.FC<ActionButtonsProps> = ({
 }) => {
 
   return (
-    <div className="flex justify-center gap-2 mb-[48px]">
+    <div className="flex justify-center gap-2 mb-[48px] max-w-[380px] mx-auto">
       {/* Nút Deposit - Mở DepositModal khi nhấn */}
       <Button
         onClick={onOpenDepositModal}
-        label="Deposit"
-        variant="fourth"
-      />
+        variant='fourth'
+        size='large'
+        className='w-full'
+      >
+        Deposit
+      </Button>
 
       {/* Nút Withdraw - Mở WithdrawModal khi nhấn */}
-      <Button
+         <Button
         onClick={onOpenWithdrawModal}
-        label="Withdraw"
-        variant="fourth"
-      />
+        variant='fourth'
+        size='large'
+        className='w-full'
+      >
+        Withdraw
+      </Button>
     </div>
   );
 };

@@ -1,12 +1,20 @@
 'use client'
 import React, { useState, useEffect } from 'react';
 import Card from "@/components/layout/Card";
+import styles from '@/styles/Carousel.module.css';
 
-const Carousel: React.FC = () => {
+
+interface CarouselProps {
+    depositedAmount?: number | string;
+}
+
+
+const Carousel: React.FC<CarouselProps> = ({ depositedAmount = '0' }) => {
+
     // Danh sách các card với type
     const cards: string[] = ['Card 1', 'Card 2', 'Card 3', 'Card 4'];
+    
     const totalCards: number = cards.length;
-
     // Hằng số kích thước
     const cardWidth: number = 363; // Chiều rộng mỗi card
     const cardHeight: number = 477; // Chiều cao mỗi card
@@ -40,15 +48,18 @@ const Carousel: React.FC = () => {
     const offset: number = calculateOffset();
 
       const raffleData = [
-  { id: 1, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "6%", yieldSource: "ZKlend" },
-  { id: 2, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "7%", yieldSource: "ZKlend" },
-  { id: 3, endTime: new Date("2025-03-15T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
-    ];
+  { id: 1, endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "6%", yieldSource: "ZKlend" },
+  { id: 2, endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "7%", yieldSource: "ZKlend" },
+  { id: 3, endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend" },
+      ];
+    
+    // Logic để disable button (ví dụ: khi depositedAmount < 100)
+  const isButtonDisabled = parseFloat(String(depositedAmount)) > 0;
 
     return (
 
         <div className="relative w-[745px] h-auto">
-            <div className="flex justify-end gap-4 relative bottom-4">
+            <div className="flex justify-end gap-4 relative bottom-5">
                 <button
                 className=" text-[#A1A1AA] hover:text-white "
                 onClick={previousPair}
@@ -75,12 +86,15 @@ const Carousel: React.FC = () => {
                             height={477}
                             countdownWidth="170px" // Tùy chỉnh width của Countdown trong Carousel
                             countdownHeight="100px" // Tùy chỉnh height của Countdown trong Carousel
-                            buttonLabel="Deposited Amount: 20 USDC"
+                            buttonLabel={`Deposited Amount: ${depositedAmount} USDC`}
                             cardInfoClassName="!bg-[#1e1e1e]"
                             cardBgColor="!bg-[#111]"
                             countdownTitleClassName="text-[14px] "
-                            usdcClassName="text-[15px]"
+                            usdcClassName="!text-[14px]"
                             cardTimeBoxClassName="!bg-[#1e1e1e]"
+                            disabled={isButtonDisabled} // Thêm prop disabled
+                            className={isButtonDisabled ?  styles.disabledCard : ''} // Áp dụng class từ module
+
 
                             
 

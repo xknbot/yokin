@@ -2,8 +2,11 @@
 
 import { useState } from "react";
 import { useRouter } from "next/navigation";
-import Button from "@/components/layout/Button";
+
 import "@/styles/Modal.module.css"; // Import custom CSS file (nếu cần)
+import Button from "@/components/ui/Button";
+
+
 
 const WithdrawModal = () => {
   const router = useRouter();
@@ -68,7 +71,7 @@ const WithdrawModal = () => {
         <div className="mt-8">
           <label
             htmlFor="withdraw"
-            className="text-[#a1a1aa] text-[14px]"
+            className="text-[#a1a1aa] text-[14px] "
           >
             Deposited Amount: {totalDeposited.toFixed(4)} USDC
           </label>
@@ -78,11 +81,11 @@ const WithdrawModal = () => {
             value={withdrawAmount}
             onChange={handleWithdrawChange}
             placeholder="0"
-            className="w-full text-white text-[30px] bg-transparent focus:outline-none mt-2"
+            className="w-full !text-white !text-[30px] bg-transparent focus:outline-none"
           />
           <p className="text-[#a1aaaa] text-[14px] mt-2">Est Value ($): 0</p>
         </div>
-        <div className="flex justify-between mt-8 mb-8 w-[50%]">
+        <div className="flex justify-between gap-2 mt-8 mb-8 w-[50%]">
           {[25, 50, 75, 100].map((percent) => (
             <button
               key={percent}
@@ -92,19 +95,16 @@ const WithdrawModal = () => {
                 );
                 setWithdrawAmount(calculatedAmount);
               }}
-              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-1 text-[12px] py-1 px-2"
+              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 text-[12px] py-1 px-2"
             >
               {percent}%
             </button>
           ))}
         </div>
         <div className="text-center">
-          <Button
-            label="Withdraw"
-            variant="third"
-            className="w-full"
-            onClick={handleWithdraw}
-          />
+          <Button variant="third" size="large" onClick={handleWithdraw} className="w-full">
+          Withdraw
+          </Button>
         </div>
         {errorMessage && (
           <p className="text-green-600 text-[14px] mt-2 text-center">

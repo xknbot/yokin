@@ -40,5 +40,5 @@
   color: #ccc;
   font-size: calc(1.5rem * var(--scale, 1));
   position: relative;
-  top: calc(5px * var(--scale, 1));
+  top: calc(10px * var(--scale, 1));
 }

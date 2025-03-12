@@ -2,7 +2,7 @@
 import "@/styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import Button1 from "@/components/ui/Button1";
+import Button1 from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/Header.module.css";
 

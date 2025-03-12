@@ -78,32 +78,32 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-4 max-w-3xl mx-auto mt-[32px] mb-5 text-white rounded-lg bg-[#0a0a0a]">
+      <div className="grid grid-cols-3 gap-4 max-w-[956px] mx-auto mt-[32px] mb-5 text-white rounded-lg bg-[#0a0a0a]">
         {/* Total Deposited */}
         <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
-          <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Total Deposited</h3>
-          <p className={`${styles.textGradientCustom} text-center text-[30px] font-bold `}>{totalDeposited}</p>
+          <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Total Deposited</h3>
+          <p className={`${styles.textGradientCustom} text-center text-[30px] font-semibold pt-2`}>{totalDeposited}</p>
           <p className="text-center text-[14px] text-[#757575] relative top-[20px]">{totalDepositedAmount}</p>
         </div>
         {/* Win Chance */}
         <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
-          <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Win Chance</h3>
-          <div className=" text-center items-center gap-2">
+          <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Win Chance</h3>
+          <div className=" text-center items-center gap-2 pt-2">
             <div className={styles.barChartContainer}>{barChart}</div>
             <span className="text-[14px] text-[#757575]">Prize Yield: {winChanceAPR}</span>
           </div>
         </div>
         {/* Yield Source */}
         <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
-          <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Yield Source</h3>
-          <p className="text-[30px] font-bold text-center">
+          <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Yield Source</h3>
+          <p className="text-[30px] font-bold text-center pt-2">
             {yieldSource}</p>
           <p className="text-center">
             <Link
               href={`https://${yieldSourceLink}`}
               target="_blank"
               rel="noopener noreferrer"
-              className="relative top-[7px] text-[14px] text-[#757575] hover:text-white underline"
+              className="relative top-[18px] text-[14px] text-[#757575] hover:text-white underline"
             >
               {yieldSourceLink}
             </Link>
@@ -111,16 +111,17 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
         </div>
       </div>
       {/* Time left & Participants */}
-      <div className="grid grid-cols-2 gap-4 mx-auto max-w-3xl  bg-[#0a0a0a] rounded-lg mb-[200px]">
-        <div className="col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
-          <p className="text-center text-[16px] font-bold text-[#757575]">Time Left</p>
-          <div className="relative left-1/6">        <Countdown endTime={endTime} width={countdownWidth}
+      <div className="grid grid-cols-2 gap-4 mx-auto max-w-[956px]  bg-[#0a0a0a] rounded-lg mb-[200px] h-[131px]">
+        <div className="relative col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
+          <p className="text-center text-[16px] font-semibold text-[#757575]">Time Left</p>
+          <div className='relative left-1/8'>
+            <Countdown endTime={endTime} width={countdownWidth}
             titleClassName={countdownTitleClassName} />
             </div>
         </div>
         <div className="col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
-          <h3 className="text-center text-[16px] font-bold mb-2 text-[#757575]">Participants</h3>
-          <p className="text-[30px] text-white font-bold text-center relative top-1/4">{participants}</p>
+          <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Participants</h3>
+          <p className="text-[30px] text-white font-semibold text-center relative top-1/3">{participants}</p>
         </div>
       </div>
     </div>

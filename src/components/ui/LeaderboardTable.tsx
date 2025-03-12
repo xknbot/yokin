@@ -64,7 +64,7 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
               
             </td>
             <td className="p-4 text-center text-[14px]">
-               <span className="text-yellow-400">★</span> {entry.totalPoints}
+               <span className="text-yellow-400 text-[16px]">★</span> {entry.totalPoints}
             </td>
           </tr>
         ))}
