@@ -1,8 +1,8 @@
 "use client";
-
+import "@/styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import Button from "@/components/layout/Button"
+import Button1 from "@/components/ui/Button1";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/Header.module.css";
 
@@ -12,9 +12,9 @@ const Header = () => {
 
 
     const tabItems = [
-        { name: "Prizes", href: "/prizes" , value: "prize" },
+        { name: "Prizes", href: "/prizes", value: "prize" },
         { name: "Vaults", href: "/vaults", value: "vaults" },
-        { name: "Leaderboard", href:"/leaderboard", value: "leaderboard" },
+        { name: "Leaderboard", href: "/leaderboard", value: "leaderboard" },
         
     ];
 
@@ -22,19 +22,18 @@ const Header = () => {
         if (pathName === itemHref) return true;
         if (itemHref === "/vaults" && pathName.startsWith("/deposit")) return true;
         return false;
-    } 
+    }
 
 
 
     return (
-        <div className={styles.header}>
+        <div className="sticky flex justify-around items-center top-0 z-10 py-5 px-0 max-w-full h-18 bg-[#000]">
             <div>
                 <Link href={"/"}>
                     <Image src="/YOKIN.png" height={43} width={149} alt="logo"/>
                 </Link>
             </div>
-
-            <nav className={styles.tabNav}> 
+            <nav className={styles.tabNav}>
                 <ul className={styles.tabNavItem}>
                     {tabItems.map((item) => (
                         <li key={item.name}>
@@ -44,16 +43,18 @@ const Header = () => {
                             </Link>
                         </li>
                     ))}
-
                 </ul>
             </nav>
 
             <div>
-                <Button label="Connect Wallet"
-                variant="primary"/>
+                <Button1> 
+                    Connect Wallet
+                </Button1>
                 
+        
             </div>
         </div>
+
     )
 }
 

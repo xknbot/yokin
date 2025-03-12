@@ -1,0 +1,84 @@
+.button {
+  padding: 4px 20px;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: var(--sm);
+  transition: all 0.5s ease-in-out;
+}
+
+.button--primary {
+  background-color: var(--color-white-1);
+  color: var(--color-black-2);
+}
+.button--primary:hover {
+  background: var(--background);
+  color: var(--color-white-1);
+  border: 1px solid;
+  border-image: linear-gradient(to right, var(--color-green-2), var(--color-yellow-2), var(--color-pink-2)) 1;
+}
+
+.button--secondary {
+  background-image: linear-gradient(to right, var(--color-green-1) 30%, var(--color-yellow-1) 50%, var(--color-pink-1) 90%);
+  color: var(--color-black-2);
+
+}
+.button--secondary:hover {
+  background-image: linear-gradient(to right, var(--color-green-2) 30%, var(--color-yellow-2) 50%, var(--color-pink-2) 90%);
+  color: var(--color-black-2);
+}
+
+.button--third {
+  background-color: var(--color-white-1);
+  color: var(--color-black-2);
+
+}
+.button--third:hover {
+  background-image: linear-gradient(to right, var(--color-green-2) 30%, var(--color-yellow-2) 50%, var(--color-pink-2) 90%);
+  color: var(--color-black-2);
+
+
+}
+
+.button--small {
+  padding: 6px 12px;
+  font-size: 14px;
+}
+
+.button--medium {
+  font-size: var(--sm);
+  padding: 10px 48px;
+
+}
+
+
+.button--large {
+  padding: 14px 28px;
+  font-size: var(--md);
+}
+
+.button--disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.button--loading {
+  position: relative;
+  cursor: wait;
+}
+
+.spinner {
+  display: inline-block;
+  width: 16px;
+  height: 16px;
+  border: 2px solid #fff;
+  border-top: 2px solid transparent;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  to {
+    transform: rotate(360deg);
+  }
+}

@@ -79,8 +79,9 @@ const Carousel: React.FC = () => {
                             cardInfoClassName="!bg-[#1e1e1e]"
                             cardBgColor="!bg-[#111]"
                             countdownTitleClassName="text-[14px] "
-                            usdcClassName="text-[5px]"
+                            usdcClassName="text-[15px]"
                             cardTimeBoxClassName="!bg-[#1e1e1e]"
+
                             
 
 

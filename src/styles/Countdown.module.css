@@ -2,8 +2,6 @@
   display: flex;
   flex-direction: column;
   align-items: start;
-
-
 }
 
 .timer {
@@ -13,7 +11,7 @@
 }
 
 .timeBox {
-  background-color: rgba(255, 255, 255, 0.2);
+  background-color: var(--color-gray-4);
   width: calc(60px * var(--scale, 1));
   height: calc(60px * var(--scale, 1));
   border-radius: 4px;
@@ -25,9 +23,8 @@
 .number {
   color: white;
   font-size: calc(1rem * var(--scale, 1));
-  font-family: SFProDisplay;
   position: absolute;
-  top: calc(15px * var(--scale, 1));
+  top: calc(18px * var(--scale, 1));
   left: calc(10px * var(--scale, 1));
 }
 
@@ -35,7 +32,7 @@
   color: #ccc;
   font-size: calc(0.8rem * var(--scale, 1));
   position: absolute;
-  top: calc(20px * var(--scale, 1));
+  top: calc(22px * var(--scale, 1));
   left: calc(37px * var(--scale, 1));
 }
 

@@ -4,8 +4,37 @@
 
 :root {
   --font-sans: 'SFProDisplay', sans-serif;
-    --background: #0a0a0a;
-    --foreground: #ededed;
+  --background: #000;
+  --foreground: #757575;
+
+  /* FONT SIZE */
+  --xs: 12px;
+  --sm: 14px;
+  --md: 16px; /* default font size */
+  --lg: 20px;
+  --xl: 30px;
+  --xxl: 32px;
+
+  /* COLORS */
+  --color-black-1: #111;
+  --color-black-2: #1e1e1e;
+  --color-gray-1: #a1a1aa;
+  --color-gray-2: #2c2c2c;
+  --color-gray-3: #222;
+  --color-gray-4: #5a5a5a;
+  --color-gray-5: #757575;
+  --color-white-1: #fff;
+  --color-white-2: #f3f3f3;
+  --color-white-3: #fafafa;
+  --color-red-1: #823536;
+  --color-red-2: #ff5c5f;
+  --color-green-1: #cdfebc;
+  --color-green-2: #b3fd9b;
+  --color-yellow-1: #ffdf94;
+  --color-yellow-2: #ffeb3b;
+  --color-pink-1: #ffe3fc;
+  --color-pink-2: #ffccfa;
+  
 
 }
 
@@ -14,6 +43,7 @@
   }
 } */
 
+
 body {
   color: var(--foreground);
   background: var(--background);
@@ -21,6 +51,8 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  font-size: var(--md);
+
 }
 
 

@@ -5,6 +5,7 @@ import BarChart from '../../components/ui/BarChart';
 import Link from 'next/link';
 import Button from '@/components/layout/Button';
 import { useRouter } from 'next/navigation';
+import Button1 from '@/components/ui/Button1';
 
 
 
@@ -66,7 +67,10 @@ const VaultCard: React.FC<VaultCardProps> = ({ logo, name, yieldSource, prize, a
         <span className={styles.totalDepositsFullNum}>{totalDepositsFullNum}</span>
       </div>
 
-      <Button label="Deposit" variant="third" onClick={ handleDepositClick} />
+
+      <Button1 variant='third' size='medium' onClick={handleDepositClick}>
+        Deposit
+      </Button1>
 
 
       

@@ -48,11 +48,18 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
             <td className="p-4 text-[14px] text-left">
               {entry.user} {entry.isCurrentUser && <span className="text-blue-400"></span>}
             </td>
-            <td className="p-4 text-center">
-              <span className="text-white text-[14px] relative bottom-[13px] inline-block"><span className="relative left-12 top-4 pr-1"><CircleDiagonalGradient1/></span> {entry.referralPoints}</span>
+            <td className="relative">
+            <div>
+                <span className="absolute top-1/3 left-[120px]"><CircleDiagonalGradient1 /></span>
+                <span className="text-[14px]">{entry.referralPoints }</span>
+              </div>
             </td>
-            <td className="p-4 text-center">
-              <span className="text-white text-[14px] relative bottom-[13px] inline-block"><span className="relative left-12 top-4 pr-1"><CircleDiagonalGradient2/></span>{entry.yokinPoints}</span>
+            <td className="relative">
+              <div>
+                <span className="absolute top-1/3 left-[105px]"><CircleDiagonalGradient2 /></span>
+                <span className="text-[14px]">{entry.yokinPoints }</span>
+              </div>
+              
             </td>
             <td className="p-4 text-center text-[14px]">
                <span className="text-yellow-400">★</span> {entry.totalPoints}

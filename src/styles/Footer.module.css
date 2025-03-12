@@ -5,7 +5,7 @@
   justify-content: space-between;
   padding: 0px 124px;
   margin-bottom: 32px;
-  background-color: #0a0a0a;
+  background-color: #000;
 
 }
 .blockInfo {
@@ -17,7 +17,7 @@
 }
 .greenCircle {
   position: relative;
-  top: 5px;
+  top: 2.5px;
   right: 4px
 }
 .footerLinks {
@@ -25,15 +25,24 @@
   column-gap: 16px;
 }
 
+
 .socialLink {
   display: flex;
   column-gap: 4px;
+
+}
+.socialLink:hover {
+  color: var(--color-white-2);
 
 }
 
 .socialLabel {
   font-size: 14px;
   color: #757575;
+}
+.socialLabel:hover {
+  color: var(--color-white-2);
+
 }
 
 .documentLink {
@@ -42,4 +51,8 @@
   border-left: 1px solid #757575;
   height: 35%;
   padding-left: 16px;
+}
+.documentLink:hover {
+  color: var(--color-white-2);
+
 }

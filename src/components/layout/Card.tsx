@@ -5,6 +5,7 @@ import styles from '@/styles/Card.module.css';
 import Image from 'next/image';
 import Countdown from '@/components/feature/Countdown'; // Đảm bảo đường dẫn đúng
 import Button from '@/components/layout/Button';
+import Button1 from '@/components/ui/Button1';
 
 interface CardProps {
   size?: 'small' | 'medium' | 'large';
@@ -92,7 +93,7 @@ const RaffleCard: React.FC<CardProps> = ({
           <h3 className={styles.cardTitle}>{title}</h3>
         </div>
         <div className={styles.usdcContainer}>
-          <h3 className={usdcClassName}>USDC</h3>
+          <h3 className={`text-[20px] mr-1 mt-0.5 ${usdcClassName}`}>USDC</h3>
           <Image
             src="/usdc-logo.png"
             width={usdcLogoSize}
@@ -125,12 +126,10 @@ const RaffleCard: React.FC<CardProps> = ({
         <h2 className={cardInfoClassName}>{buttonText.openParticipation}</h2>
         <h2 className={cardInfoClassName}>Minimum {minimumDeposit}</h2>
       </div>
+      <Button1 variant='third' size='large' >
+        Participate
+      </Button1>
 
-      <Button
-        label={buttonLabel}
-        variant="third"
-        className={styles.participateButton}
-      />
     </div>
   );
 };
