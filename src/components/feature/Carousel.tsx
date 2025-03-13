@@ -94,7 +94,7 @@ const Carousel: React.FC<CarouselProps> = ({ raffles }) => {
               />
             ))
           ) : (
-            <p className="text-white">Không có raffle nào để hiển thị.</p>
+            <p className="text-white">There is no raffle to show.</p>
           )}
         </div>
       </div>
