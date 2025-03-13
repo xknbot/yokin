@@ -59,11 +59,11 @@ const MyRafflesData: React.FC<MyRafflesDataProps> = ({ }) => {
     <div className="mx-auto w-[44%] h-auto p-5 text-white font-sans bg-[#111] rounded-lg border border-[#222]">
       <div className="text-[14px] text-gray-400 mb-2">
         <span className="cursor-pointer hover:underline"> ← Account</span> 
-       &nbsp; &gt; <span className="text-white ml-[10px]">My Raffle</span>
+       &nbsp; &gt; <span className="text-white ml-[10px]">My Raffles</span>
       </div>
       <div className="flex justify-between items-center">
         <div>
-          <h1 className="text-[20px] font-semibold mb-2 mt-[48px]">My Raffle</h1>
+          <h1 className="text-[20px] font-semibold mb-2 mt-[48px]">My Raffles</h1>
           <p className="text-[14px] text-[#757575] mb-5">
             here you can see all raffles you’re currently participating in
           </p>
