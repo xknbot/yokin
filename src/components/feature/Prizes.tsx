@@ -1,10 +1,10 @@
 'use client'
 
 import "../../styles/globals.css";
-import Button from "../layout/Button";
-import styles from "@/styles/Prizes.module.css";
+
+
 import Card from "../layout/Card"; 
-import Button1 from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 
 
 const Prizes = () => {
@@ -21,9 +21,9 @@ const Prizes = () => {
         <div className="p-5 min-h-full"> 
             <div className="mt-[69px] mb-[72px] h-[98px] text-center" >
                 <h1 className="text-[32px] font-semibold mb-6 leading-[38px] text-[var(--color-white-2)]">Keep your deposit. Win up to thousands of Benjamin</h1>
-                <Button1 variant="secondary" size="medium">
+                <Button variant="secondary" size="medium">
                     Deposit to win
-                    </Button1>
+                    </Button>
             </div>
 
             <div className="max-w-full mx-auto">
