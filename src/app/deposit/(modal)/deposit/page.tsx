@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import '@/styles/Modal.module.css'; // Import custom CSS file
 import { useRouter } from "next/navigation";
-import Button1 from "../../../../components/ui/Button";
+import Button from "../../../../components/ui/Button";
 
 
 
@@ -93,9 +93,9 @@ const DepositModal: React.FC<DepositModalProps> = ({ onClose }) => {
           ))}
         </div>
         <div className="text-center">
-          <Button1 variant="third" size="large" onClick={handleDeposit} className="w-full">
+          <Button variant="third" size="large" onClick={handleDeposit} className="w-full">
           Deposit
-          </Button1>
+          </Button>
         </div>
       </div>
     </div>
