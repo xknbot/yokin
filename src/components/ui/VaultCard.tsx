@@ -3,7 +3,7 @@ import Image from 'next/image';
 import styles from '@/styles/VaultCard.module.css';
 import BarChart from '../../components/ui/BarChart';
 import { useRouter } from 'next/navigation';
-import Button1 from '@/components/ui/Button';
+import Button from '@/components/ui/Button';
 
 
 
@@ -66,9 +66,9 @@ const VaultCard: React.FC<VaultCardProps> = ({ logo, name, yieldSource, prize, a
       </div>
 
 
-      <Button1 variant='third' size='medium' onClick={handleDepositClick}>
+      <Button variant='third' size='medium' onClick={handleDepositClick}>
         Deposit
-      </Button1>
+      </Button>
 
 
       
