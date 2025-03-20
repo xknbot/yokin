@@ -1,16 +1,12 @@
 /* RaffleCard.module.css */
-.raffleCard {
+.card {
   display: flex;
   flex-direction: column;
   justify-content: space-between;
   background-color: #111;
   border: 1px solid #333;
   border-radius: 8px;
-<<<<<<< Updated upstream
   padding: calc(36px * var(--scale, 1));
-=======
-  padding: 1rem; /* Dùng giá trị cố định, sẽ scale theo thẻ cha */
->>>>>>> Stashed changes
   color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: opacity 0.3s ease;
@@ -21,14 +17,10 @@
 .cardHeader {
   display: flex;
   justify-content: space-between;
-<<<<<<< Updated upstream
   align-items: center;
   margin-bottom: calc(40px * var(--scale, 1));
 
 
-=======
-  margin-bottom: 2rem; /* Dùng giá trị cố định, scale theo thẻ cha */
->>>>>>> Stashed changes
 }
 
 .cardTitleContainer {
@@ -39,15 +31,6 @@
 
 }
 
-<<<<<<< Updated upstream
-=======
-.logoZklend {
-  position: relative;
-  right: 1rem; /* Dùng giá trị cố định */
-  width: 10%; /* Scale theo thẻ cha */
-  height: auto;
-}
->>>>>>> Stashed changes
 
 .usdcContainer {
   display: flex;
@@ -56,7 +39,6 @@
   gap: 5px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-<<<<<<< Updated upstream
   padding: 0 calc(18px * var(--scale, 1));
   height: calc(50px * var(--scale, 1));
 
@@ -68,26 +50,6 @@
   max-height: 100%;
   background-color: transparent;
   width: calc(20px * var(--scale, 1));
-=======
-  padding: 0 1.5rem; /* Dùng giá trị cố định */
-  height: 2.5rem; /* Dùng giá trị cố định */
-  margin-top: 0.5rem;
-}
-
-.usdcContainer h3 {
-  position: relative;
-  left: -0.5rem; /* Dùng giá trị cố định */
-  font-size: clamp(0.75rem, 2vw, 1rem); /* Scale theo viewport */
-  margin: 0;
-}
-
-.usdcContainer .usdcLogo {
-  position: relative;
-  left: -0.5rem;
-  background-color: transparent;
-  width: 10%; /* Scale theo thẻ cha */
-  height: auto;
->>>>>>> Stashed changes
 }
 
 .usdcLogo {
@@ -97,16 +59,11 @@
 
 .cardTitle {
   position: relative;
-  font-size: clamp(1rem, 3vw, 1.5rem); /* Scale theo viewport */
+  font-size: calc(20px * var(--scale, 1));
   color: #fff;
   font-weight: bold;
-<<<<<<< Updated upstream
   margin-left: calc(20px * var(--scale, 1));
 
-=======
-  right: 1rem;
-  width: 50%; /* Scale theo thẻ cha */
->>>>>>> Stashed changes
 }
 
 .timeLeft {
@@ -139,55 +96,37 @@
 .stats p {
   margin: 0.5rem 0;
   color: rgba(255, 255, 255, 0.3);
-  font-size: clamp(0.875rem, 2.5vw, 1rem); /* Scale theo viewport */
+  font-size: calc(16px * var(--scale, 1));
+
 }
 
 .stats p:nth-child(1) {
-<<<<<<< Updated upstream
   justify-self: left;
-=======
-  position: relative;
-  right: 1.5rem;
->>>>>>> Stashed changes
 }
 
 .stats p:nth-child(2) {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   padding-left: calc(20px * var(--scale, 1));
   height: 160%;
-<<<<<<< Updated upstream
   justify-self: left;
 
 
-=======
-  margin-right: 0.5rem;
->>>>>>> Stashed changes
 }
 
 .stats p:nth-child(3) {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   height: 160%;
-<<<<<<< Updated upstream
   justify-self: left;
   padding-left: calc(20px * var(--scale, 1));
 
 
-=======
-  position: relative;
-  left: 0.5rem;
->>>>>>> Stashed changes
 }
 
 .stats p:nth-child(4) {
   color: white;
   font-weight: bold;
-<<<<<<< Updated upstream
   justify-self: left;
 
-=======
-  position: relative;
-  right: 1.5rem;
->>>>>>> Stashed changes
 }
 
 .stats p:nth-child(5) {
@@ -202,15 +141,10 @@
 .stats p:nth-child(6) {
   color: white;
   font-weight: bold;
-<<<<<<< Updated upstream
   justify-self: left;
   padding-left: calc(20px * var(--scale, 1));
 
 
-=======
-  position: relative;
-  right: 0.5rem;
->>>>>>> Stashed changes
 }
 
 .cardInfo {
@@ -223,7 +157,7 @@
   background-color: rgba(255, 255, 255, 0.3);
   padding: 0.375rem 0.75rem;
   border-radius: 4px;
-  font-size: clamp(0.75rem, 2vw, 0.875rem); /* Scale theo viewport */
+  font-size: calc(16px * var(--scale, 1));
 }
 
 .buttonContainer {
