@@ -13,6 +13,11 @@ interface RafflesData {
   minimumDeposit: string;
   depositedAmount: string;
   isExclusive: boolean;
+  logoUrl: string; // Thêm vào interface
+  currency: string; // Thêm vào interface
+  currencyLogoUrl: string; // Thêm vào interface
+  width: string | number;
+  height: string | number;
 }
 
 interface CarouselProps {
@@ -73,6 +78,9 @@ const Carousel: React.FC<CarouselProps> = ({ raffles }) => {
             raffles.map((raffle) => (
               <Card
                 key={raffle.id} // Đảm bảo key duy nhất
+                logoUrl={raffle.logoUrl} // Truyền logoUrl
+                currency={raffle.currency} // Truyền currency
+                currencyLogoUrl={raffle.currencyLogoUrl} // Truyền currencyLogoUrl
                 title={raffle.title}
                 tvl={raffle.tvl}
                 apy={raffle.apy}

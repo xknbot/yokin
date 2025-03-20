@@ -16,7 +16,7 @@ const Countdown: React.FC<CountdownProps> = ({
   endTime,
   width = '100%', // Mặc định full width của parent
   height = 'auto', // Mặc định tự động theo nội dung
-  className='',
+  className,
   titleClassName = '',
   timeBoxClassName='',
 }) => {

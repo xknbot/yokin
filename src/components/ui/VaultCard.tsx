@@ -22,7 +22,7 @@ type VaultCardProps = {
 const VaultCard: React.FC<VaultCardProps> = ({ logo, name, yieldSource, prize, apr, winChances, totalDeposits, totalDepositsFullNum }) => {
   // Giả sử winChances > 0 để hiển thị biểu đồ đơn giản (dùng emoji), nếu = 0 thì hiển thị dấu —
   const chartData = [15, 20, 25, 30, 35];
-  const winChanceDisplay = winChances > 0 ? <BarChart data={chartData} width={100} height={55} /> : '—';
+  const winChanceDisplay = winChances > 0 ? <BarChart data={chartData} width={90} height={35} /> : '—';
   const router = useRouter();
 
   const handleDepositClick = () => {
@@ -32,14 +32,16 @@ const VaultCard: React.FC<VaultCardProps> = ({ logo, name, yieldSource, prize, a
     <div className={styles.vaultCard}>
       {/* Logo và Tiêu đề */}
       <div className={styles.vaultInfo}>
-        <Image
-          src={logo}
-          alt={`${name} Logo`}
-          width={100}
-          height={100}
-          className={styles.logo}
-        />
-        <div>
+        <div className={styles.vaultLogo}>
+          <Image
+            src={logo}
+            alt={`${name} Logo`}
+            width={50}
+            height={50}
+            className={styles.logo}
+          />
+        </div>
+        <div className={styles.vaultTitle}>
           <span className={styles.vaultName}>{name}</span>
           <span className={styles.yieldSource}>{yieldSource}</span> 
         </div>
@@ -47,18 +49,20 @@ const VaultCard: React.FC<VaultCardProps> = ({ logo, name, yieldSource, prize, a
       </div>
 
       <div className={styles.prizeContainer}>
-        <div>
-          <span className={styles.upTo}>Up to</span>
-          <span className={styles.prize}>{prize}</span>
+        <div className={styles.prizeAmount} >
+          <p className={styles.upTo}>Up to</p>
+          <p className={styles.prize}>{prize}</p>
         </div>
-        <div>
-          <span className={styles.apr}>{apr}</span>
-          <span className={styles.inApr}>in APR</span>
+        <div className={styles.prizeApr}>
+          <p className={styles.apr}>{apr}</p>
+          <p className={styles.inApr}>in APR</p>
         </div>
       </div>
 
 
-      <span className={styles.winChances}>{winChanceDisplay}</span>
+      <div className={`${styles.vaultProgress} ${styles.winChances}`}>
+        {winChanceDisplay}
+      </div>
 
       <div className={styles.depositsContainer}>
         <span className={styles.totalDeposits}>{totalDeposits}</span>
@@ -66,9 +70,11 @@ const VaultCard: React.FC<VaultCardProps> = ({ logo, name, yieldSource, prize, a
       </div>
 
 
-      <Button variant='third' size='medium' onClick={handleDepositClick}>
-        Deposit
-      </Button>
+      <div className={styles.depositButton}>
+        <Button variant='third' size='medium' onClick={handleDepositClick}>
+          Deposit
+        </Button>
+      </div>
 
 
       

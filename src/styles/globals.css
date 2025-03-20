@@ -3,6 +3,7 @@
 
 
 :root {
+  --scale: 1; /* Đảm bảo biến này được định nghĩa */
   --font-sans: 'SFProDisplay', sans-serif;
   --background: #000;
   --foreground: #757575;
