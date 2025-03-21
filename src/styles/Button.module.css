@@ -1,21 +1,28 @@
 .button {
+
   padding: 4px 20px;
-  border: 1px solid transparent;
+  border: 1px solid transparent; 
   border-radius: 4px;
   cursor: pointer;
   font-size: var(--sm);
   transition: all 0.5s ease-in-out;
+  z-index: 1;
 }
 
 .button--primary {
   background-color: var(--color-white-1);
   color: var(--color-black-2);
 }
-.button--primary:hover {
-  background: var(--background);
+
+
+ .button--primary:hover {
   color: var(--color-white-1);
-  border: 1px solid;
-  border-image: linear-gradient(to right, var(--color-green-2), var(--color-yellow-2), var(--color-pink-2)) 1;
+  background: linear-gradient(black, black) padding-box,
+              linear-gradient(to right, var(--color-green-2), var(--color-yellow-2), var(--color-pink-2)) border-box;
+  /* border-image: linear-gradient(to right, var(--color-green-2), var(--color-yellow-2), var(--color-pink-2)) 1; */ 
+  border-radius: 4px;
+
+
 }
 
 .button--secondary {

@@ -2,7 +2,7 @@
 import "@/styles/globals.css";
 import Link from "next/link";
 import Image from "next/image";
-import Button1 from "@/components/ui/Button";
+import Button from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/Header.module.css";
 import { useState, useEffect } from "react";
@@ -55,9 +55,9 @@ const Header = () => {
             </nav>
 
             <div>
-                <Button1> 
+                <Button> 
                     Connect Wallet
-                </Button1>
+                </Button>
                 
         
             </div>

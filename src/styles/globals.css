@@ -35,6 +35,7 @@
   --color-yellow-2: #ffeb3b;
   --color-pink-1: #ffe3fc;
   --color-pink-2: #ffccfa;
+  --gradient-color: linear-gradient(to right, var(--color-green-2), var(--color-yellow-2), var(--color-pink-2)) 1;
   
 
 }
