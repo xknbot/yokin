@@ -50,8 +50,8 @@ export default function DepositPage() {
           yieldSourceLink="zkp.zklend.com"
           timeLeft="4d : 19hr : 3m : 21s"
           participants={125}
-          countdownWidth={200}
           countdownTitleClassName='!hidden'
+          countdownClassName='mx-auto w-fit'
         />
       </>
     );

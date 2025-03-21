@@ -28,13 +28,13 @@ const Carousel: React.FC<CarouselProps> = ({ raffles }) => {
   const totalCards = raffles.length;
   const cardWidth = 363;
   const cardHeight = 477;
-  const cardSpacing = 16;
+  const cardSpacing = 10;
   const viewportWidth = cardWidth * 2 + cardSpacing;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
 
   const calculateOffset = (): number => {
-    return -currentIndex * (cardWidth + cardSpacing / 2);
+    return -currentIndex * (cardWidth + cardSpacing );
   };
 
   const nextPair = (): void => {
@@ -71,7 +71,7 @@ const Carousel: React.FC<CarouselProps> = ({ raffles }) => {
       </div>
       <div className="relative max-w-[742px] overflow-hidden" style={{ height: `${cardHeight}px` }}>
         <div
-          className="flex transition-transform duration-500 ease-in-out gap-[16px] absolute"
+          className="flex transition-transform duration-500 ease-in-out gap-[10px] absolute"
           style={{ transform: `translateX(${offset}px)` }}
         >
           {raffles.length > 0 ? (
@@ -92,9 +92,9 @@ const Carousel: React.FC<CarouselProps> = ({ raffles }) => {
                 countdownWidth="170px"
                 countdownHeight="100px"
                 buttonLabel={`Deposited Amount: ${raffle.depositedAmount} USDC`}
-                cardInfoClassName="!bg-[#1e1e1e]"
+                cardInfoClassName="!bg-[#1e1e1e] !text-[10px]"
                 cardBgColor="!bg-[#111]"
-                countdownTitleClassName="text-[14px]"
+                countdownTitleClassName="!text-[14px]"
                 usdcClassName="!text-[14px]"
                 cardTimeBoxClassName="!bg-[#1e1e1e]"
                 disabled={parseFloat(raffle.depositedAmount) > 0}

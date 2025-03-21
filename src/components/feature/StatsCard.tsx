@@ -16,8 +16,8 @@ interface StatisticsDetailsProps {
   timeLeft?: string; // Ví dụ: "4d : 19hr : 3m : 21s"
   participants?: number | string; // Ví dụ: "123"
   countdownWidth?: string | number;
-  countdownHeight?: string | number;
   countdownTitleClassName?: string;
+  countdownClassName?: string;
 }
 
 
@@ -33,8 +33,8 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
   timeLeft = '4d : 19hr : 3m : 21s',
   participants = 123,
   countdownWidth = '',
-  countdownHeight = '',
   countdownTitleClassName = '',
+  countdownClassName='',
 }) => {
   // Tính toán endTime dựa trên timeLeft
   const [endTime, setEndTime] = useState<Date | null>(null);
@@ -78,7 +78,7 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
 
   return (
     <div>
-      <div className="grid grid-cols-3 gap-4 max-w-[956px] mx-auto mt-[32px] mb-5 text-white rounded-lg bg-[#0a0a0a]">
+      <div className="grid grid-cols-3 gap-4 max-w-[956px] mx-auto mt-[32px] mb-5 text-white rounded-lg ">
         {/* Total Deposited */}
         <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
           <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Total Deposited</h3>
@@ -88,7 +88,7 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
         {/* Win Chance */}
         <div className="col-span-1 bg-[#111] p-4 rounded-lg shadow-md border border-[#222]">
           <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Win Chance</h3>
-          <div className=" text-center items-center gap-2 pt-2">
+          <div className=" text-center pt-2">
             <div className={styles.barChartContainer}>{barChart}</div>
             <span className="text-[14px] text-[#757575]">Prize Yield: {winChanceAPR}</span>
           </div>
@@ -111,13 +111,14 @@ const StatisticsDetails: React.FC<StatisticsDetailsProps> = ({
         </div>
       </div>
       {/* Time left & Participants */}
-      <div className="grid grid-cols-2 gap-4 mx-auto max-w-[956px]  bg-[#0a0a0a] rounded-lg mb-[200px] h-[131px]">
+      <div className="grid grid-cols-2 gap-4 mx-auto max-w-[956px] rounded-lg mb-[200px] h-[131px]">
         <div className="relative col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
           <p className="text-center text-[16px] font-semibold text-[#757575]">Time Left</p>
-          <div className='relative left-1/8'>
-            <Countdown endTime={endTime} width={countdownWidth}
-            titleClassName={countdownTitleClassName} />
-            </div>
+
+          <Countdown endTime={endTime} width={countdownWidth}
+            titleClassName={countdownTitleClassName} className={countdownClassName} />
+  
+
         </div>
         <div className="col-span-1 p-4 rounded-lg bg-[#111] border border-[#222]">
           <h3 className="text-center text-[16px] font-semibold mb-2 text-[#757575]">Participants</h3>

@@ -83,14 +83,12 @@
   border-radius: 4px;
   color: #fff;
   border: 1px solid #444;
-  font-size: clamp(0.75rem, 2vw, 1rem); /* Scale theo viewport */
+  font-size: calc(16px * var(--scale, 1));
 }
 
 .stats {
   display: grid;
   grid-template-columns: auto auto auto;
-  margin-top: 2rem;
-  margin-bottom: 0.75rem;
 }
 
 .stats p {
@@ -155,7 +153,7 @@
 
 .cardInfo h2 {
   background-color: rgba(255, 255, 255, 0.3);
-  padding: 0.375rem 0.75rem;
+  padding: calc(10px * var(--scale, 1));
   border-radius: 4px;
   font-size: calc(16px * var(--scale, 1));
 }

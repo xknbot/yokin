@@ -30,9 +30,10 @@
 }
 
 .barChartContainer {
-  position: relative;
-  left: 80px;
-
+width: fit-content;
+height: fit-content;
+margin: 0 auto;
+transform: translateY(-25px);
 
 }
 

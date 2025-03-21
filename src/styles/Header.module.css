@@ -1,34 +1,41 @@
 
-.tabActive {
-  background-color: var(--color-white-1);
-  color: var(--color-black-2);
-  border: solid 1px var(--color-gray-2);
-  border-radius: 4px;
-  padding:  5px 15px;
-}
+
+
 
 .tabNav {
-  height: 37px;
-  width: fit-content;
-  border: solid 1px #2c2c2c;
-  border-radius: 4px;
-  padding: 4px;
   display: flex;
   align-items: center;
-  position: relative;
-  left: 20px;
+  width: 240px;
+  height: 37px;
+  border: solid 1px #2c2c2c;
+  border-radius: 4px;
+  padding: 0px 5px;
 
 }
 
 
 .tabNavItem {
-  font-style: var(--sm);
-  display: flex;
-  align-items: center;
-  column-gap: 20px;
-  font-size: 14px;
+  font-size: var(--sm);
   color: #5a5a5a;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  list-style: none;
 
+
+}
+
+.tabNavItem a {
+  padding: 5px 10px;
+  color: #5a5a5a;
+  text-decoration: none;
+}
+
+
+.tabActive {
+  background-color: var(--color-white-1);
+  color: var(--color-black-2);
+  border-radius: 4px;
 }
 
 .gradientShadow {

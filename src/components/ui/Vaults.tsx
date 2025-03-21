@@ -193,7 +193,7 @@ const Vaults: React.FC = () => {
 
   if (loading) return (
     <div className="flex justify-center items-center min-h-screen">
-      <div className="text-[var(--color-white-2)] text-[24px] animate-pulse">Loading...</div>
+      <div className="text-[var(--color-white-2)] animate-pulse">Loading...</div>
     </div>
   );
 
