@@ -30,48 +30,66 @@
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
   transition: background-color 0.3s;
   height: 85px;
-  max-width: 1200px;
+  max-width: 100%;
   border-radius: 4px;
   border: 1px solid #222;
 }
 
 
-
 .vaultInfo {
   display: flex;
   align-items: center;
-  gap: 32px;
+  gap: 20px;
+  flex: 3;
+
+
+
 }
 
 .logo {
-  border-radius: 50%;
-  position: relative;
-  right: 20px;
-  top: -3px;
+  border-radius: 10%;
+}
+
+.vaultTitle {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-center;
 }
 
 .vaultName {
   font-size: 22px;
   color: #fff;
-  position: relative;
-  left: -50px;
+
 }
 
 .yieldSource {
-  display: block;
   font-size: 12px;
   color: #a0a0a0;
-  position: relative;
-  left: -50px;
+
 
 }
 
 .prizeContainer {
-  position: relative;
-  right: 20px;
   display: flex;
   flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  flex: 2;
+  padding-right: 10px;
 
+
+}
+
+.prizeAmount {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
+}
+
+.prizeApr {
+  display: flex;
+  align-items: baseline;
+  gap: 5px;
 }
 
 .upTo {
@@ -80,34 +98,48 @@
 }
 
 .prize {
-  position: relative;
   font-size: 20px;
   color: #fff;
-  left: 5px;
 }
 
 .apr {
   font-size: 20px;
   color: #fff;
 }
+
 .inApr {
-  position: relative;
   font-size: 14px;
   color: #757575;
-  left: 5px;
 
 }
+
+
+.vaultProgress {
+  flex: 2;
+  display: flex;
+  justify-content: center; /* Căn giữa theo chiều ngang */
+  align-items: center; /* Căn giữa theo chiều dọc */
+  height: 100%; /* Đảm bảo chiều cao đủ để căn giữa */
+
+
+}
+
 
 .winChances {
-  position: relative;
-  top: 10px;
-
+  /* Nếu có thêm style, đảm bảo không ghi đè justify-content hoặc align-items */
+  width: 100%; /* Đảm bảo chiếm toàn bộ chiều rộng để căn giữa chính xác */
+  text-align: center; /* Dùng cho trường hợp hiển thị '—' */
 }
 
+
 .depositsContainer {
-  position: relative;
-  left: 26px;
-  text-align: center;
+  flex: 2;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+
+
 }
 
 .totalDeposits {
@@ -116,23 +148,14 @@
 }
 
 .totalDepositsFullNum {
-  display: block;
   font-size: 14px;
   color: #757575;
 }
 
 .depositButton {
-  background-color: #fff;
-  color: #000;
-  padding: 8px 16px;
-  border: none;
-  border-radius: 4px;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: pointer;
-  transition: background-color 0.3s;
-}
+  flex: 3;
+  text-align: end;
 
-.depositButton:hover {
-  background-color: #e0e0e0;
+
+
 }

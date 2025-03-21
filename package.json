@@ -12,6 +12,7 @@
   },
   "dependencies": {
     "classnames": "^2.5.1",
+    "mongoose": "^8.12.1",
     "next": "15.2.1",
     "normalize.css": "^8.0.1",
     "react": "^19.0.0",
@@ -30,6 +31,7 @@
     "@storybook/react": "^8.6.4",
     "@storybook/test": "^8.6.4",
     "@tailwindcss/postcss": "^4",
+    "@types/mongoose": "^5.11.96",
     "@types/node": "^20",
     "@types/react": "^19",
     "@types/react-dom": "^19",
@@ -50,5 +52,6 @@
     "extends": [
       "plugin:storybook/recommended"
     ]
-  }
+  },
+  "packageManager": "yarn@1.22.22+sha512.a6b2f7906b721bba3d67d4aff083df04dad64c399707841b7acf00f6b133b7ac24255f2652fa22ae3534329dc6180534e98d17432037ff6fd140556e2bb3137e"
 }

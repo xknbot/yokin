@@ -14,20 +14,19 @@ interface RafflesData {
   minimumDeposit: string;
   depositedAmount: string;
   isExclusive: boolean;
+  logoUrl: string;
+  currency: string;
+  currencyLogoUrl: string;
+  width: string | number; // Đảm bảo có width
+  height: string | number; // Đảm bảo có height
+
 }
 
 interface MyRafflesDataProps {
   raffles: RafflesData[];
 }
 
-const MyRafflesData: React.FC<MyRafflesDataProps> = ({ }) => {
-  const raffles = [
-    { id: 1, title: "ZkLend USDC Raffle", endTime: new Date("2025-03-05T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend", minimumDeposit: "20 USDC", depositedAmount: "20", isExclusive: false },
-    { id: 2, title: "ZkLend USDC Raffle", endTime: new Date("2025-03-10T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend", minimumDeposit: "20 USDC", depositedAmount: "20", isExclusive: true },
-    { id: 3, title: "ZkLend USDC Raffle", endTime: new Date("2025-03-30T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend", minimumDeposit: "20 USDC", depositedAmount: "20", isExclusive: false },
-    { id: 4, title: "ZkLend USDC Raffle", endTime: new Date("2025-03-28T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend", minimumDeposit: "20 USDC", depositedAmount: "20", isExclusive: false },
-    { id: 5, title: "ZkLend USDC Raffle", endTime: new Date("2025-03-27T00:00:00"), tvl: "21k USDC", apy: "14.6%", yieldSource: "ZKlend", minimumDeposit: "20 USDC", depositedAmount: "20", isExclusive: false },
-  ];
+const MyRafflesData: React.FC<MyRafflesDataProps> = ({ raffles }) => {
 
   const [activeTab, setActiveTab] = useState<'inProgress' | 'completed'>('inProgress');
   const [filter, setFilter] = useState<'all' | 'exclusive'>('all');

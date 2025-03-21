@@ -1,12 +1,10 @@
 .barChartContainer {
   display: flex;
-  justify-content: center;
   align-items: flex-end;
-  padding: 20px;
   gap: 3px; /* Khoảng cách giữa các cột */
   overflow: hidden; /* Ngăn các cột vượt ra ngoài nếu quá lớn */
   box-sizing: border-box; /* Đảm bảo padding không làm tăng kích thước tổng */
-
+  justify-content: center;
 }
 
 .bar {

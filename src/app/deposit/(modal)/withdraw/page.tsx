@@ -95,7 +95,7 @@ const WithdrawModal = () => {
                 );
                 setWithdrawAmount(calculatedAmount);
               }}
-              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 text-[12px] py-1 px-2"
+              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 text-[12px] py-1 px-2 hover:cursor-pointer"
             >
               {percent}%
             </button>

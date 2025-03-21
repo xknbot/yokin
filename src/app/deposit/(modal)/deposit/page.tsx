@@ -86,7 +86,7 @@ const DepositModal: React.FC<DepositModalProps> = ({ onClose }) => {
             <button
               key={percent}
               onClick={() => handlePercentage(percent)}
-              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-2 text-[12px] py-1 px-2"
+              className="bg-[#5a5a5a] text-white rounded-[3px] hover:bg-gray-600 flex-1 mr-2 text-[12px] py-1 px-2 hover:cursor-pointer"
             >
               {percent}%
             </button>

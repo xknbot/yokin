@@ -1,8 +1,5 @@
 import React from "react";
 import Image from "next/image";
-import CircleDiagonalGradient1 from "@/components/ui/CircleDiagonalGradient1"
-import CircleDiagonalGradient2 from "./CircleDiagonalGradient2";
-
 
 type LeaderboardEntry = {
   rank: number;
@@ -10,7 +7,7 @@ type LeaderboardEntry = {
   referralPoints: number;
   yokinPoints: number;
   totalPoints: number;
-  isCurrentUser?: boolean; // Dấu "(YOU)" cho người dùng hiện tại
+  isCurrentUser?: boolean;
 };
 
 type LeaderboardTableProps = {
@@ -31,9 +28,11 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
       </thead>
       <tbody>
         {entries.map((entry, index) => (
-          <tr key={entry.rank}
-            className={`p-4 text-center ${index === 0 ? 'border-b border-[#27272a]' : ''} 
-          ${index === entries.length - 1 ? 'bg-[#2c2c2c]' : ''}`}>
+          <tr
+            key={entry.rank}
+            className={`p-4 text-center  ${index === 0 ? 'border-b border-[#27272a]' : ''} 
+            ${entry.isCurrentUser ? 'bg-[#2c2c2c]' : ''}`}
+          >
             <td className="text-[14px] p-4 text-center">
               {entry.rank <= 3 ? (
                 <Image
@@ -48,23 +47,41 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
               )}
             </td>
             <td className="p-4 text-[14px] text-left">
-              {entry.user} {entry.isCurrentUser && <span className="text-blue-400"></span>}
+              <span className={entry.isCurrentUser ? 'text-blue-400' : ''}>
+                {entry.user} {entry.isCurrentUser && ''}
+              </span>
             </td>
-            <td className="relative">
-            <div>
-                <span className="absolute top-1/3 left-[120px]"><CircleDiagonalGradient1 /></span>
-                <span className="text-[14px]">{entry.referralPoints }</span>
-              </div>
+            <td className="text-center">
+              <span className="relative inline-block">
+                <span
+                  className="absolute top-1/2 w-3 h-3 rounded-full transform -translate-y-1/2 right-6"
+                  style={{
+                    background: "linear-gradient(135deg, #FFFFFF, #2C2C2C)", // Gradient 1
+                  }}
+                ></span>
+                <span className="text-[14px]">{entry.referralPoints}</span>
+              </span>
             </td>
-            <td className="relative">
-              <div>
-                <span className="absolute top-1/3 left-[105px]"><CircleDiagonalGradient2 /></span>
-                <span className="text-[14px]">{entry.yokinPoints }</span>
-              </div>
-              
+            <td className="text-center">
+              <span className="relative inline-block">
+                <span
+                  className="absolute top-1/2 w-3 h-3 rounded-full transform -translate-y-1/2 right-6 "
+                  style={{
+                    background: "linear-gradient(135deg, #757575, #2C2C2C)", // Gradient 2
+                  }}
+                ></span>
+                <span className="text-[14px]">{entry.yokinPoints}</span>
+              </span>
             </td>
-            <td className="p-4 text-center text-[14px]">
-               <span className="text-yellow-400 text-[16px]">★</span> {entry.totalPoints}
+           <td className="text-center">
+              <span className="relative inline-block">
+                <span
+                  className="absolute top-1/2 text-[14px] text-yellow-400 transform -translate-y-1/2 right-7"
+                >
+                  ★
+                </span>
+                <span>{entry.totalPoints}</span>
+              </span>
             </td>
           </tr>
         ))}
@@ -74,3 +91,5 @@ const LeaderboardTable: React.FC<LeaderboardTableProps> = ({ entries }) => {
 };
 
 export default LeaderboardTable;
+
+

@@ -1,59 +1,55 @@
-
-
+/* RaffleCard.module.css */
 .card {
   display: flex;
   flex-direction: column;
-  justify-content: space-evenly;
+  justify-content: space-between;
   background-color: #111;
   border: 1px solid #333;
   border-radius: 8px;
-  padding-left: calc(36px * var(--scale, 1));
-  padding-right: calc(36px * var(--scale, 1));
-  padding-bottom: calc(18px * var(--scale, 1));
-  padding-top: calc(10px * var(--scale, 1));
+  padding: calc(36px * var(--scale, 1));
   color: #fff;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: opacity 0.3s ease;
   text-align: center;
-  position: relative;
+
 }
 
 .cardHeader {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   margin-bottom: calc(40px * var(--scale, 1));
+
 
 }
 
 .cardTitleContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
+
+
 }
 
-.logoZklend {
-  position: relative;
-  right: calc(20px * var(--scale, 1));
-}
 
 .usdcContainer {
   display: flex;
   align-items: center;
+  justify-content: center;
+  gap: 5px;
   background-color: rgba(255, 255, 255, 0.2);
   border-radius: 8px;
-  padding: 0 calc(30px * var(--scale, 1));
+  padding: 0 calc(18px * var(--scale, 1));
   height: calc(50px * var(--scale, 1));
-  margin-top: calc(10px * var(--scale, 1));
+
 }
 
-.usdcContainer h3 {
-  position: relative;
-  left: calc(-10px * var(--scale, 1));
-}
+
 
 .usdcContainer .usdcLogo {
-  position: relative;
-  left: calc(-10px * var(--scale, 1));
+  max-height: 100%;
   background-color: transparent;
+  width: calc(20px * var(--scale, 1));
 }
 
 .usdcLogo {
@@ -66,108 +62,103 @@
   font-size: calc(20px * var(--scale, 1));
   color: #fff;
   font-weight: bold;
-  right: calc(20px * var(--scale, 1));
-  width: calc(300px * var(--scale, 1));
+  margin-left: calc(20px * var(--scale, 1));
+
 }
 
 .timeLeft {
-  margin: calc(12px * var(--scale, 1)) 0;
+  margin: 0.5rem 0; /* Dùng giá trị cố định */
   color: #fff;
 }
 
 .timeLeft span {
-  margin-right: calc(8px * var(--scale, 1));
+  margin-right: 0.5rem;
 }
 
 .timeBox {
   display: inline-block;
-  margin-left: calc(4px * var(--scale, 1));
-  padding: calc(4px * var(--scale, 1)) calc(8px * var(--scale, 1));
+  margin-left: 0.25rem;
+  padding: 0.25rem 0.5rem;
   background-color: #333;
   border-radius: 4px;
   color: #fff;
   border: 1px solid #444;
+  font-size: calc(16px * var(--scale, 1));
 }
 
 .stats {
   display: grid;
   grid-template-columns: auto auto auto;
-  margin-top: calc(40px * var(--scale, 1));
-  margin-bottom: calc(15px * var(--scale, 1));
 }
 
 .stats p {
-  margin: calc(8px * var(--scale, 1)) 0;
+  margin: 0.5rem 0;
   color: rgba(255, 255, 255, 0.3);
-  font-size: calc(18px * var(--scale, 1));
+  font-size: calc(16px * var(--scale, 1));
+
 }
 
 .stats p:nth-child(1) {
-  position: relative;
-  right: calc(30px * var(--scale, 1));
+  justify-self: left;
 }
 
 .stats p:nth-child(2) {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
+  padding-left: calc(20px * var(--scale, 1));
   height: 160%;
-  margin-right: calc(10px * var(--scale, 1));
+  justify-self: left;
+
+
 }
 
 .stats p:nth-child(3) {
   border-left: 1px solid rgba(255, 255, 255, 0.2);
   height: 160%;
-  position: relative;
-  left: calc(10px * var(--scale, 1));
+  justify-self: left;
+  padding-left: calc(20px * var(--scale, 1));
+
+
 }
 
 .stats p:nth-child(4) {
   color: white;
   font-weight: bold;
-  position: relative;
-  right: calc(32px * var(--scale, 1));
+  justify-self: left;
+
 }
 
 .stats p:nth-child(5) {
   color: white;
   font-weight: bold;
+  justify-self: left;
+  padding-left: calc(20px * var(--scale, 1));
+
+
 }
 
 .stats p:nth-child(6) {
   color: white;
   font-weight: bold;
-  position: relative;
-  right: calc(10px * var(--scale, 1));
+  justify-self: left;
+  padding-left: calc(20px * var(--scale, 1));
+
+
 }
 
 .cardInfo {
   display: flex;
-  gap: calc(8px * var(--scale, 1));
-  margin: calc(18px * var(--scale, 1)) 0;
+  gap: 0.5rem;
+  margin: 1rem 0;
 }
 
 .cardInfo h2 {
   background-color: rgba(255, 255, 255, 0.3);
-  padding: calc(6px * var(--scale, 1)) calc(12px * var(--scale, 1));
-  border-radius: 4px;
-  font-size: calc(14px * var(--scale, 1));
-}
-
-.participateButton {
-  width: 100%;
-  height: calc(48px * var(--scale, 1));
-  background: white;
-  border: none;
-  color: #000;
   padding: calc(10px * var(--scale, 1));
   border-radius: 4px;
-  cursor: pointer;
-  margin-top: calc(50px * var(--scale, 1));
-  font-size: calc(18px * var(--scale, 1));
+  font-size: calc(16px * var(--scale, 1));
 }
 
-.participateButton:hover {
-  background: linear-gradient(45deg, #b3fd9b, #ffccfa);
-  transition: ease-in-out;
-  transition-duration: 600ms;
+.buttonContainer {
+  width: 100%;
+  margin-top: 2.5rem;
 }
-

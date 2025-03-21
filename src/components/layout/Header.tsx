@@ -5,10 +5,12 @@ import Image from "next/image";
 import Button1 from "@/components/ui/Button";
 import { usePathname } from "next/navigation";
 import styles from "@/styles/Header.module.css";
+import { useState, useEffect } from "react";
 
 
 const Header = () => {
-    const pathName = usePathname();
+    const pathName = usePathname() || ""; // Fallback nếu pathName là null
+    const [activeTab, setActiveTab] = useState<string | null>(null);
 
 
     const tabItems = [
@@ -18,11 +20,17 @@ const Header = () => {
         
     ];
 
+    useEffect(() => {
     const isTabActive = (itemHref: string) => {
-        if (pathName === itemHref) return true;
-        if (itemHref === "/vaults" && pathName.startsWith("/deposit")) return true;
-        return false;
-    }
+        if (!pathName) return false; // Tránh lỗi khi pathName là null
+      if (pathName === itemHref) return true;
+      if (itemHref === "/vaults" && pathName.startsWith("/deposit")) return true;
+      return false;
+    };
+
+    const active = tabItems.find((item) => isTabActive(item.href));
+    setActiveTab(active ? active.href : null);
+  }, [pathName]);
 
 
 
@@ -38,7 +46,7 @@ const Header = () => {
                     {tabItems.map((item) => (
                         <li key={item.name}>
                             <Link href={item.href}
-                                className={isTabActive(item.href) ? styles.tabActive : ""}>
+                                className={activeTab === item.href ? styles.tabActive : ""}>
                                 {item.name}
                             </Link>
                         </li>
@@ -59,3 +67,6 @@ const Header = () => {
 }
 
 export default Header;
+
+
+

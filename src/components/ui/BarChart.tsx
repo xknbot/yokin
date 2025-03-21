@@ -7,7 +7,7 @@ interface BarChartProps {
   width?: number; // Chiều rộng tổng của biểu đồ (tùy chọn)
 }
 
-const BarChart: React.FC<BarChartProps> = ({ data, height = 150, width = 300 }) => {
+const BarChart: React.FC<BarChartProps> = ({ data, height, width }) => {
   // Tính toán chiều rộng của từng cột dựa trên tổng chiều rộng và số lượng cột
   const barWidth = width / data.length - 10; // Giảm 10px để giữ khoảng cách
 
